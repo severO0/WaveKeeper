@@ -2,16 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:wavekeeper/views/album_view.dart';
 
 class AlbumCard extends StatelessWidget {
-  final ImageProvider image;
-  final String label;
-  final Function()? onTap;
-  final double size;
+   ImageProvider image;
+   String label;
+  Function()? onTap;
+   double size;
 
-  const AlbumCard({
+  AlbumCard({
     Key? key,
     required this.image,
     required this.label,
-    required this.onTap,
     this.size = 120,
   }) : super(key: key);
 
