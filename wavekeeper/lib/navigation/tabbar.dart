@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:wavekeeper/views/home.dart';
-import 'package:wavekeeper/views/search.dart';
 import 'package:wavekeeper/views/profile.dart';
-import 'package:wavekeeper/views/library.dart';
+import 'package:wavekeeper/views/business.dart';
+import 'package:wavekeeper/views/login.dart';
 
 class Tabbar extends StatefulWidget {
   const Tabbar({super.key});
@@ -27,18 +27,15 @@ class _TabbarState extends State<Tabbar> {
       },
 
       items: [
-        //NOME DOS BOTOES DA GRIP PRINCIPAL
+        //NOME DOS BOTOES DA GRID PRINCIPAL
         BottomNavigationBarItem(
           icon: Icon(Icons.home), 
           label: "Home",
           ),
+        
         BottomNavigationBarItem(
-          icon: Icon(Icons.search_outlined), 
-          label: "Search",
-          ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.library_music), 
-          label: " Your Library",
+          icon: Icon(Icons.attach_money_rounded), 
+          label: "Business",
           ),
         BottomNavigationBarItem(
           icon: Icon(Icons.person), 
@@ -52,14 +49,10 @@ class _TabbarState extends State<Tabbar> {
           renderView(
             0,
              HomeView(),
-             ),
-          renderView(
-            1,
-             SearchView(),
-             ),
+             ),  
           renderView(
             2, 
-            LibraryView(),
+            BusinessView(),
             ),
           renderView(
             3,

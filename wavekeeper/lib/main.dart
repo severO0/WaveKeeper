@@ -1,21 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:wavekeeper/navigation/tabbar.dart';
+import 'package:wavekeeper/views/login.dart'; 
 
 void main() {
   runApp(MyApp());
 }
 
-class MyApp extends StatefulWidget {
-  const MyApp({super.key});
-
-  @override
-  State<MyApp> createState() => _MyAppState();
-}
-
-class _MyAppState extends State<MyApp> {
+class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return  MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
       themeMode: ThemeMode.dark,
       darkTheme: ThemeData(
@@ -34,7 +28,8 @@ class _MyAppState extends State<MyApp> {
           unselectedItemColor: Colors.white38,
         ),
       ),
-      home: Tabbar(),
-      );
+      // Defina a tela de login como a primeira tela
+      home: LoginScreen(),
+    );
   }
 }
