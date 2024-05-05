@@ -9,10 +9,28 @@ class LoginScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Wave Keeper'),
-        backgroundColor: Colors.grey[700],
-        elevation: 0,
+      title: Column(
+        mainAxisAlignment: MainAxisAlignment.center, // Centraliza os widgets verticalmente
+        crossAxisAlignment: CrossAxisAlignment.center, // Centraliza os widgets horizontalmente
+        children: [
+          Container(
+            padding: EdgeInsets.all(1.0),
+            child: Image.asset(
+              'assets/wavekeeperlogo.jpg',
+              fit: BoxFit.cover,
+              width: 40, // Ajuste o tamanho conforme necessário
+              height: 40, // Ajuste o tamanho conforme necessário
+            ),
+          ),
+          Text(
+            'Wave Keeper',
+            style: TextStyle(fontSize: 16), // Ajuste o tamanho do texto conforme necessário
+          ),
+        ],
       ),
+      backgroundColor: Colors.grey[700],
+      elevation: 0,
+    ),
       body: Container(
         padding: EdgeInsets.only(left: 20, top: 240, right: 20),
         width: double.infinity,
