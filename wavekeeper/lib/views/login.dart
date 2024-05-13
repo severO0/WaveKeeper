@@ -1,32 +1,38 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:wavekeeper/navigation/tabbar.dart'; // Importe a classe Tabbar.dart aqui
+import 'package:http/http.dart' as http;
 
 class LoginScreen extends StatelessWidget {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
+  final _formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-      title: Column(
-        mainAxisAlignment: MainAxisAlignment.center, // Centraliza os widgets verticalmente
-        crossAxisAlignment: CrossAxisAlignment.center, // Centraliza os widgets horizontalmente
-        children: [
-          Container(
-            padding: EdgeInsets.all(1.0),
-            child: Image.asset(
-              'assets/wavekeeperlogo.jpg',
-              fit: BoxFit.cover,
-              width: 40, // Ajuste o tamanho conforme necessário
-              height: 40, // Ajuste o tamanho conforme necessário
+      title: Form(
+        key:_formKey,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center, // Centraliza os widgets verticalmente
+          crossAxisAlignment: CrossAxisAlignment.center, // Centraliza os widgets horizontalmente
+          children: [
+            Container(
+              padding: EdgeInsets.all(1.0),
+              child: Image.asset(
+                'assets/wavekeeperlogo.jpg',
+                fit: BoxFit.cover,
+                width: 40, // Ajuste o tamanho conforme necessário
+                height: 40, // Ajuste o tamanho conforme necessário
+              ),
             ),
-          ),
-          Text(
-            'Wave Keeper',
-            style: TextStyle(fontSize: 16), // Ajuste o tamanho do texto conforme necessário
-          ),
-        ],
+            Text(
+              'Wave Keeper',
+              style: TextStyle(fontSize: 16), // Ajuste o tamanho do texto conforme necessário
+            ),
+          ],
+        ),
       ),
       backgroundColor: Colors.grey[700],
       elevation: 0,
@@ -73,6 +79,12 @@ class LoginScreen extends StatelessWidget {
       child: TextFormField(
         controller: emailController,
         keyboardType: TextInputType.emailAddress,
+        validator: (email) {
+            if (email == null || email.isEmpty) {
+              return 'Digite um e-mail válido';
+            }
+            return null;
+          },
         decoration: InputDecoration(
           border: InputBorder.none,
           hintText: 'Digite seu e-mail', // Texto de dica dentro do campo
@@ -102,6 +114,14 @@ class LoginScreen extends StatelessWidget {
         controller: passwordController,
         keyboardType: TextInputType.visiblePassword,
         obscureText: true,
+        validator: (password) {
+            if (password == null || password.isEmpty) {
+              return 'Digite uma senha válida';
+            }else if (password.length < 6) {
+            return 'A senha deve ter pelo menos 6 caracteres';
+            }
+            return null;
+          },
         decoration: InputDecoration(
           border: InputBorder.none,
           hintText: 'Digite sua senha', // Texto de dica dentro do campo
@@ -110,6 +130,7 @@ class LoginScreen extends StatelessWidget {
       ),
     ),
     SizedBox(height: 50),
+
     Container(
       width: 150,
       decoration: BoxDecoration(
@@ -126,12 +147,25 @@ class LoginScreen extends StatelessWidget {
             fontSize: 18,
           ),
         ),
-        onPressed: () {
+
+        onPressed:  () async {
           // Lógica de autenticação e navegação
           String email = emailController.text;
           String password = passwordController.text;
-
+          if (_formKey.currentState!.validate()) {
+            // Processar os dados
+          }
           if (email.isNotEmpty && password.isNotEmpty) {
+            var url = Uri.parse('https://emanuelseverino.com.br/login');
+            var response = await http.post(
+              url,
+              body: {
+                'username': email,
+                'password': password,
+              }
+            );
+            print(response.body); // Exibe o corpo da resposta (resposta do servidor
+            print(response.statusCode); // Exibe o código de status da resposta
             // Adicione sua lógica de autenticação aqui
             bool isAuthenticated = true; // Simulando autenticação bem-sucedida
 
@@ -178,4 +212,8 @@ class LoginScreen extends StatelessWidget {
       ),
     );
   }
+
+
+
+
 }

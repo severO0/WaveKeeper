@@ -2,6 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:wavekeeper/views/album_view.dart';
 import 'package:wavekeeper/widgets/album_card.dart';
 import 'package:wavekeeper/widgets/song_card.dart';
+import 'package:wavekeeper/views/login.dart';
+import 'package:wavekeeper/navigation/tabbar.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
+
 
 class HomeView extends StatefulWidget {
   @override
@@ -9,6 +14,35 @@ class HomeView extends StatefulWidget {
 }
 
 class _HomeViewState extends State<HomeView> {
+  Future<bool> verificarLogin() async {
+    SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
+    String? token = sharedPreferences.getString('token');
+      if(token != null && token.isNotEmpty) {
+        return false;
+      }else{
+        return true;  
+        }
+      }
+   @override
+  void initState() {
+    super.initState();
+
+    verificarLogin().then((temUsuario) {
+      if(temUsuario) {
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (context) => Tabbar()),
+        );
+      } else {
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(
+            builder: (context) => LoginScreen()
+          ),
+        );
+      }
+    });
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -297,4 +331,5 @@ class _RowAlbumCardState extends State<RowAlbumCard> {
       ),
     );
   }
+     
 }
