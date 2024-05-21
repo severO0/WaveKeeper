@@ -51,6 +51,7 @@ class LoginScreen extends StatelessWidget {
                       ),Text(
                   'Wave Keeper',
                   style: TextStyle(
+                    color: Color.fromRGBO(255, 255, 255, 1),
                     fontWeight: FontWeight.bold,
                       fontSize:
                           25), // Ajuste o tamanho do texto conforme necessário
@@ -137,7 +138,7 @@ class LoginScreen extends StatelessWidget {
           Container(
             width: 250,
             decoration: BoxDecoration(
-              color: Colors.green,
+              color: Color.fromRGBO(174,82,200,1.0),
               borderRadius: BorderRadius.all(
                 Radius.circular(30),
               ),
