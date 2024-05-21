@@ -5,8 +5,7 @@ import 'package:wavekeeper/widgets/song_card.dart';
 import 'package:wavekeeper/views/login.dart';
 import 'package:wavekeeper/navigation/tabbar.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
-
+import 'profile/usuario.dart';
 
 class HomeView extends StatefulWidget {
   @override
@@ -27,13 +26,18 @@ class _HomeViewState extends State<HomeView> {
   void initState() {
     super.initState();
 
-    verificarLogin().then((temUsuario) {
-      if(temUsuario) {
+    verificarLogin().then((token) {
+      /*
+      if(token) {
+        // Busca o usuario logado no banco de dados, ele vai retornar o usuario
+        var usuario = Usuario(id: 1, nome: "FULANO DE TAL",  nomeArtistico: "FULANINHO", email: 'email', senha: '1234');
         Navigator.pushReplacement(
           context,
-          MaterialPageRoute(builder: (context) => Tabbar()),
+          MaterialPageRoute(builder: (context) => Tabbar(usuario: usuario)),
         );
-      } else {
+      } else {*/
+      if( !token) {
+        // ADICIONA UMA MENSAGEM FALANDO QUE A SESSAO EXPIROU
         Navigator.pushReplacement(
           context,
           MaterialPageRoute(
@@ -41,7 +45,9 @@ class _HomeViewState extends State<HomeView> {
           ),
         );
       }
-    });
+    }
+    //}
+    );
   }
   @override
   Widget build(BuildContext context) {

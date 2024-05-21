@@ -116,7 +116,7 @@ class _AlbumViewState extends State<AlbumView> {
                               children: [
                                 Text(
                                   "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum",
-                                  style: Theme.of(context).textTheme.caption,
+                                  style: Theme.of(context).textTheme.labelMedium,
                                 ),
                                 SizedBox(height: 8),
                                 Row(
@@ -133,7 +133,7 @@ class _AlbumViewState extends State<AlbumView> {
                                 SizedBox(height: 8),
                                 Text(
                                   "1,888,132 likes 5h 3m",
-                                  style: Theme.of(context).textTheme.caption,
+                                  style: Theme.of(context).textTheme.labelMedium,
                                 ),
                                 SizedBox(height: 16),
                                 Stack(
@@ -166,7 +166,7 @@ class _AlbumViewState extends State<AlbumView> {
                         SizedBox(height: 32),
                         Text(
                           "You might also like",
-                          style: Theme.of(context).textTheme.headline6,
+                          style: Theme.of(context).textTheme.labelMedium,
                         ),
                         Padding(
                           padding: const EdgeInsets.symmetric(vertical: 16),
@@ -266,7 +266,7 @@ class _AlbumViewState extends State<AlbumView> {
                         opacity: showTopBar ? 1 : 0,
                         child: Text(
                           "Ophelia",
-                          style: Theme.of(context).textTheme.headline6,
+                          style: Theme.of(context).textTheme.labelMedium,
                         ),
                       ),
                       Positioned(
