@@ -32,7 +32,7 @@ class SongCard extends StatelessWidget {
             ),
             Text(
               "Bad Bunny, Drake, Justin Bieber, Taylor Swift, Ed Sheeran",
-              style: Theme.of(context).textTheme.caption,
+              style: Theme.of(context).textTheme.labelMedium,
               overflow: TextOverflow.ellipsis,
               maxLines: 2,
             ),

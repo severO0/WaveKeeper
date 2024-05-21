@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:wavekeeper/widgets/song_card.dart';
 import 'package:wavekeeper/views/login.dart';
 import 'package:wavekeeper/views/album_view.dart';
-import 'package:wavekeeper/views/home.dart';
 import 'package:wavekeeper/widgets/album_card.dart';
 
 class BusinessView extends StatefulWidget {

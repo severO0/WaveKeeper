@@ -1,7 +1,10 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:wavekeeper/navigation/tabbar.dart'; // Importe a classe Tabbar.dart aqui
 import 'package:http/http.dart' as http;
+import 'profile/usuario.dart';
 
 class LoginScreen extends StatelessWidget {
   final TextEditingController emailController = TextEditingController();
@@ -152,27 +155,39 @@ class LoginScreen extends StatelessWidget {
           // Lógica de autenticação e navegação
           String email = emailController.text;
           String password = passwordController.text;
+          
           if (_formKey.currentState!.validate()) {
             // Processar os dados
           }
           if (email.isNotEmpty && password.isNotEmpty) {
-            var url = Uri.parse('https://emanuelseverino.com.br/login');
+            
+            var url = Uri.parse('https://dummyjson.com/auth/login');
+
             var response = await http.post(
               url,
               body: {
                 'username': email,
                 'password': password,
+                'expiresInMins': '30'
               }
             );
+
             print(response.body); // Exibe o corpo da resposta (resposta do servidor
             print(response.statusCode); // Exibe o código de status da resposta
+
+            // Primeiro converte para um Map<k, v>
+            final Map parsed = jsonDecode(response.body);
+
             // Adicione sua lógica de autenticação aqui
             bool isAuthenticated = true; // Simulando autenticação bem-sucedida
+            var usuario = Usuario(id: parsed['id'], 
+            nome: "FULANO DE TAL",  
+            nomeArtistico: "FULANINHO", email: email, senha: password);
 
             if (isAuthenticated) {
               Navigator.pushReplacement(
                 context,
-                MaterialPageRoute(builder: (context) => Tabbar()),
+                MaterialPageRoute(builder: (context) => Tabbar(usuario: usuario)),
               );
             }
           }
