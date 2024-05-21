@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:wavekeeper/navigation/tabbar.dart';
+import 'package:wavekeeper/views/home.dart';
 import 'package:wavekeeper/views/login.dart'; 
 
 void main() {
@@ -30,6 +31,7 @@ class MyApp extends StatelessWidget {
       ),
       // Defina a tela de login como a primeira tela
       home: LoginScreen(),
+
     );
   }
 }
