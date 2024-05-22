@@ -220,6 +220,27 @@ class RegisterScreen extends StatelessWidget {
                 onPressed: () async {},
               ),
             ),
+            SizedBox(height: 10),
+          Container(
+            width: 250,
+            decoration: BoxDecoration(
+              color: Colors.transparent,
+              borderRadius: BorderRadius.all(
+                Radius.circular(30),
+              ),
+            ),
+            child: TextButton(
+                child: Text(
+                  'Login',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 18,
+                    decoration: TextDecoration.underline
+
+                  ),
+                ),
+                onPressed: () {Navigator.pop(context);}),
+          ),
           ],
         ),
       ),

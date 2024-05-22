@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:wavekeeper/navigation/tabbar.dart'; // Importe a classe Tabbar.dart aqui
 import 'package:http/http.dart' as http;
+import 'package:wavekeeper/views/register.dart';
 import 'profile/usuario.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -35,30 +36,31 @@ class LoginScreen extends StatelessWidget {
         ),
       ),
       child: ListView(
-  children: <Widget>[
+        children: <Widget>[
           Container(
-              child: Column(
-                children: [
-                  Container(
-                        margin: EdgeInsets.symmetric(vertical: 10.0),
-                        padding: EdgeInsets.all(1.0),
-                        child: Image.asset(
-                          'assets/wavekeeperlogo.jpg',
-                          fit: BoxFit.cover,
-                          width: 180, // Ajuste o tamanho conforme necessário
-                          height: 180, // Ajuste o tamanho conforme necessário
-                        ),
-                      ),Text(
+            child: Column(
+              children: [
+                Container(
+                  margin: EdgeInsets.symmetric(vertical: 10.0),
+                  padding: EdgeInsets.all(1.0),
+                  child: Image.asset(
+                    'assets/wavekeeperlogo.jpg',
+                    fit: BoxFit.cover,
+                    width: 180, // Ajuste o tamanho conforme necessário
+                    height: 180, // Ajuste o tamanho conforme necessário
+                  ),
+                ),
+                Text(
                   'Wave Keeper',
                   style: TextStyle(
-                    color: Color.fromRGBO(255, 255, 255, 1),
-                    fontWeight: FontWeight.bold,
+                      color: Color.fromRGBO(255, 255, 255, 1),
+                      fontWeight: FontWeight.bold,
                       fontSize:
                           25), // Ajuste o tamanho do texto conforme necessário
                 ),
-                ],
-              ),
+              ],
             ),
+          ),
           Text(
             'E-mail ou nome de usuário',
             style: TextStyle(
@@ -138,7 +140,7 @@ class LoginScreen extends StatelessWidget {
           Container(
             width: 250,
             decoration: BoxDecoration(
-              color: Color.fromRGBO(174,82,200,1.0),
+              color: Color.fromRGBO(174, 82, 200, 1.0),
               borderRadius: BorderRadius.all(
                 Radius.circular(30),
               ),
@@ -191,6 +193,7 @@ class LoginScreen extends StatelessWidget {
               },
             ),
           ),
+
           SizedBox(height: 20),
           Container(
             width: 250,
@@ -216,6 +219,27 @@ class LoginScreen extends StatelessWidget {
               ),
               onPressed: () {},
             ),
+          ),
+          SizedBox(height: 10),
+          Container(
+            width: 250,
+            decoration: BoxDecoration(
+              color: Colors.transparent,
+              borderRadius: BorderRadius.all(
+                Radius.circular(30),
+              ),
+            ),
+            child: TextButton(
+                child: Text(
+                  'Inscreva-se',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 18,
+                    decoration: TextDecoration.underline
+
+                  ),
+                ),
+                onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (context)=> RegisterScreen()));}),
           ),
         ],
       ),
