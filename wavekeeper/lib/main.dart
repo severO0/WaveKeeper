@@ -31,8 +31,7 @@ class MyApp extends StatelessWidget {
         ),
       ),
       // Defina a tela de login como a primeira tela
-      //home: LoginScreen(),
-      home: RegisterScreen()
+      home: LoginScreen(),
 
     );
   }
