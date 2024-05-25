@@ -158,8 +158,9 @@ class LoginScreen extends StatelessWidget {
                 String email = emailController.text;
                 String password = passwordController.text;
 
-                if (_formKey.currentState!.validate()) {
-                  // Processar os dados
+                if (_formKey.currentState!= null && _formKey.currentState!.validate()) {
+                  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => Tabbar()));
+                    
                 }
                 if (email.isNotEmpty && password.isNotEmpty) {
                   var url = Uri.parse('https://dummyjson.com/auth/login');
