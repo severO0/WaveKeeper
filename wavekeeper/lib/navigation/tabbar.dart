@@ -6,7 +6,7 @@ import 'package:wavekeeper/views/business.dart';
 import 'package:wavekeeper/views/login.dart';
 
 class Tabbar extends StatefulWidget {
-  const Tabbar({super.key});
+  const Tabbar({Key? key}) : super(key: key);
 
   @override
   State<Tabbar> createState() => _TabbarState();

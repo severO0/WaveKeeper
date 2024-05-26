@@ -10,7 +10,7 @@ class ProfileView extends StatelessWidget {
 
   final Usuario usuario;
 
-  ProfileView({required this.usuario});
+   ProfileView({ required this.usuario});
 
   @override
   Widget build(BuildContext context) {
