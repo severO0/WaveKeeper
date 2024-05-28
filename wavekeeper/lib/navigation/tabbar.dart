@@ -4,16 +4,21 @@ import 'package:wavekeeper/views/home.dart';
 import 'package:wavekeeper/views/profile.dart';
 import 'package:wavekeeper/views/business.dart';
 import 'package:wavekeeper/views/login.dart';
+import 'package:wavekeeper/views/profile/usuario.dart';
 
 class Tabbar extends StatefulWidget {
-  const Tabbar({Key? key}) : super(key: key);
+  final Usuario usuario;
+  const Tabbar({Key? key, required this.usuario}) : super(key: key);
 
   @override
-  State<Tabbar> createState() => _TabbarState();
+  State<Tabbar> createState() => _TabbarState(this.usuario);
 }
 
 class _TabbarState extends State<Tabbar> {
   int _selectedTab = 0;
+  final Usuario usuario;
+
+  _TabbarState(this.usuario);
 
   @override
   Widget build(BuildContext context) {
@@ -56,7 +61,7 @@ class _TabbarState extends State<Tabbar> {
             ),
           renderView(
             3,
-             ProfileView(),
+             ProfileView(usuario: usuario),
              ),
         ],
       ),
