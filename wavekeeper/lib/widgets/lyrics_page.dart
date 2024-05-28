@@ -37,7 +37,7 @@ class _LyricsPageState extends State<LyricsPage> {
 
   @override
   void initState() {
-    streamSubscription = widget.player.onPositionChanged.listen((duration) {
+    streamSubscription = widget.player.onAudioPositionChanged.listen((duration) {
       DateTime dt = DateTime(1970, 1, 1).copyWith(
           hour: duration.inHours,
           minute: duration.inMinutes.remainder(60),
@@ -77,7 +77,7 @@ class _LyricsPageState extends State<LyricsPage> {
                 padding: const EdgeInsets.symmetric(horizontal: 20.0)
                     .copyWith(top: 20),
                 child: StreamBuilder<Duration>(
-                    stream: widget.player.onPositionChanged,
+                    stream: widget.player.onAudioPositionChanged,
                     builder: (context, snapshot) {
                       return ScrollablePositionedList.builder(
                         itemCount: lyrics!.length,

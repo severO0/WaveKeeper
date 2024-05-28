@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class Music {
   Duration? duration;
-  String trackId;
+  String? trackId;
   String? artistName;
   String? songName;
   String? songImage;
@@ -11,7 +11,7 @@ class Music {
 
   Music(
       {this.duration,
-      required this.trackId,
+      this.trackId,
       this.artistName,
       this.songName,
       this.songImage,

@@ -10,7 +10,7 @@ class ProfileView extends StatelessWidget {
 
   final Usuario usuario;
 
-   ProfileView({ required this.usuario});
+  const ProfileView({Key? key, required this.usuario}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

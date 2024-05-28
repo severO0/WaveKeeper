@@ -159,7 +159,26 @@ class LoginScreen extends StatelessWidget {
                 String password = passwordController.text;
 
                 if (_formKey.currentState!= null && _formKey.currentState!.validate()) {
-                  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => Tabbar()));
+                  // RECUPERAR O USUARIO QUE ESTA LOGADO PELO TOKEN
+                  var url = Uri.parse('https://dummyjson.com/auth/me');
+
+                  var response = await http.get(url, headers: {
+                    'Authorization': 'token que esta logado',
+                  });
+
+                  print(response
+                      .body); // Exibe o corpo da resposta (resposta do servidor
+                  print(response
+                      .statusCode); // Exibe o código de status da resposta
+                      
+                  var usuario = Usuario(
+                      id: 1,
+                      nome: "FULANO DE TAL",
+                      nomeArtistico: "FULANINHO",
+                      email: email,
+                      senha: password);
+
+                  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => Tabbar(usuario: usuario)));
                     
                 }
                 if (email.isNotEmpty && password.isNotEmpty) {
@@ -189,7 +208,9 @@ class LoginScreen extends StatelessWidget {
                       email: email,
                       senha: password);
 
-                  if (isAuthenticated) {}
+                  if (isAuthenticated) {
+                    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => Tabbar(usuario: usuario)));
+                  }
                 }
               },
             ),

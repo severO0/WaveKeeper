@@ -12,18 +12,18 @@ import 'package:wavekeeper/models/lyrics.dart';
 import 'package:youtube_explode_dart/youtube_explode_dart.dart';
 import 'package:wavekeeper/widgets/audio_video_progress_bar.dart'; // Certifique-se de importar a barra de progresso
 import 'package:wavekeeper/widgets/lyrics_page.dart'; // Certifique-se de importar a página de letras
-import 'package:wavekeeper/player_state.dart'; // Certifique-se de importar o estado do player
+import 'package:audioplayers/audioplayers.dart';
 
-class BusinessView extends StatefulWidget {
-  const BusinessView({super.key});
+class BusinessPlayer extends StatefulWidget {
+  const BusinessPlayer({super.key});
 
   @override
-  State<BusinessView> createState() => _BusinessViewState();
+  State<BusinessPlayer> createState() => _BusinessViewState();
 }
 
-class _BusinessViewState extends State<BusinessView> {
+class _BusinessViewState extends State<BusinessPlayer> {
   final Music music = Music(); // Instância de música para exemplo
-  final Player player = Player(); // Instância de player para exemplo
+  final AudioPlayer player = AudioPlayer(); // Instância de player para exemplo
 
   @override
   Widget build(BuildContext context) {
@@ -96,7 +96,7 @@ class _BusinessViewState extends State<BusinessView> {
                     ),
                     const SizedBox(height: 16),
                     StreamBuilder(
-                      stream: player.onPositionChanged,
+                      stream: player.onAudioPositionChanged,
                       builder: (context, snapshot) {
                         return ProgressBar(
                           progress: snapshot.data ?? const Duration(seconds: 0),
@@ -133,7 +133,7 @@ class _BusinessViewState extends State<BusinessView> {
                         ),
                         IconButton(
                           onPressed: () async {
-                            if (player.state == PlayerState.playing) {
+                            if (player.state == PlayerState.PLAYING) {
                               await player.pause();
                             } else {
                               await player.resume();
@@ -141,7 +141,7 @@ class _BusinessViewState extends State<BusinessView> {
                             setState(() {});
                           },
                           icon: Icon(
-                            player.state == PlayerState.playing ? Icons.pause : Icons.play_circle,
+                            player.state == PlayerState.PLAYING ? Icons.pause : Icons.play_circle,
                             color: Colors.white,
                             size: 60,
                           ),
