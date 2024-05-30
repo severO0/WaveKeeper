@@ -25,8 +25,8 @@ class LoginScreen extends StatelessWidget {
           begin: Alignment.topCenter,
           end: Alignment.bottomCenter,
           colors: [
-            Color(0xFF616161),
-            Color(0xFF212121),
+            Colors.purple,
+            Colors.black,
             Color(0xFF212121),
             Color(0xFF212121),
             Color(0xFF212121),

@@ -1,12 +1,5 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:wavekeeper/navigation/tabbar.dart';
 import 'package:wavekeeper/views/business_player.dart';
-import 'package:wavekeeper/widgets/song_card.dart';
-import 'package:wavekeeper/views/login.dart';
-import 'package:wavekeeper/widgets/album_card.dart';
-import 'package:wavekeeper/views/album_view.dart';
-import 'package:wavekeeper/views/home.dart';
 
 class BusinessView extends StatefulWidget {
   const BusinessView({super.key});
@@ -19,8 +12,35 @@ class _BusinessViewState extends State<BusinessView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: PreferredSize(
+    preferredSize: Size.fromHeight(100.0),
+    child: AppBar(
+      backgroundColor: Colors.black,
+      automaticallyImplyLeading: false,
+      title: Text(
+        'Business Works',
+        style: TextStyle(
+          color: Colors.white,
+          fontSize: 25.0,
+          fontWeight: FontWeight.bold,
+        ),
+      ),
+      flexibleSpace: Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            colors: [Colors.purple, Colors.black],
+            stops: [0.1, 1.0],
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+          ),
+        ),
+      ),
+      centerTitle: false,
+      elevation: 0.0,
+    ),
+  ),
       body: Container(
-        padding: EdgeInsets.only(left: 20, top: 40, right: 20),
+        padding: EdgeInsets.only(left: 20, top: 10, right: 20),
         width: double.infinity,
         height: double.infinity,
         alignment: Alignment.topLeft,
@@ -41,14 +61,6 @@ class _BusinessViewState extends State<BusinessView> {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              "Business Works",
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
             SizedBox(height: 20), // Espaço entre o texto e as imagens
             Expanded(
               child: SingleChildScrollView(

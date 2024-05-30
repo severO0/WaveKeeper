@@ -1,15 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:wavekeeper/navigation/tabbar.dart';
-import 'package:wavekeeper/views/business_player.dart';
-import 'package:wavekeeper/widgets/song_card.dart';
-import 'package:wavekeeper/views/login.dart';
-import 'package:wavekeeper/widgets/album_card.dart';
-import 'package:wavekeeper/views/album_view.dart';
-import 'package:wavekeeper/views/home.dart';
-import 'package:wavekeeper/views/business.dart';
 import 'package:wavekeeper/models/music.dart';
-import 'package:wavekeeper/models/lyrics.dart';
-import 'package:youtube_explode_dart/youtube_explode_dart.dart';
 import 'package:wavekeeper/widgets/audio_video_progress_bar.dart'; // Certifique-se de importar a barra de progresso
 import 'package:wavekeeper/widgets/lyrics_page.dart'; // Certifique-se de importar a página de letras
 import 'package:audioplayers/audioplayers.dart';
@@ -96,7 +86,7 @@ class _BusinessViewState extends State<BusinessPlayer> {
                     ),
                     const SizedBox(height: 16),
                     StreamBuilder(
-                      stream: player.onAudioPositionChanged,
+                      stream: player.onPositionChanged,
                       builder: (context, snapshot) {
                         return ProgressBar(
                           progress: snapshot.data ?? const Duration(seconds: 0),
@@ -133,7 +123,7 @@ class _BusinessViewState extends State<BusinessPlayer> {
                         ),
                         IconButton(
                           onPressed: () async {
-                            if (player.state == PlayerState.PLAYING) {
+                            if (player.state == PlayerState.playing) {
                               await player.pause();
                             } else {
                               await player.resume();
@@ -141,7 +131,7 @@ class _BusinessViewState extends State<BusinessPlayer> {
                             setState(() {});
                           },
                           icon: Icon(
-                            player.state == PlayerState.PLAYING ? Icons.pause : Icons.play_circle,
+                            player.state == PlayerState.playing ? Icons.pause : Icons.play_circle,
                             color: Colors.white,
                             size: 60,
                           ),

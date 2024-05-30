@@ -23,6 +23,49 @@ class _TabbarState extends State<Tabbar> {
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
+      drawer:Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: <Widget>[
+            DrawerHeader(
+              decoration: BoxDecoration(
+                color: Colors.blue,
+              ),
+              child: Text(
+                'Drawer Header',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 24,
+                ),
+              ),
+            ),
+            ListTile(
+              leading: Icon(Icons.home),
+              title: Text('Home'),
+              onTap: () {
+                Navigator.pop(context);
+                // Navegue para outra tela, se necessário
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.settings),
+              title: Text('Settings'),
+              onTap: () {
+                Navigator.pop(context);
+                // Navegue para outra tela, se necessário
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.contacts),
+              title: Text('Contacts'),
+              onTap: () {
+                Navigator.pop(context);
+                // Navegue para outra tela, se necessário
+              },
+            ),
+          ],
+        ),
+      ),
      bottomNavigationBar: BottomNavigationBar(
       currentIndex: _selectedTab ,
       onTap: (index){
@@ -37,7 +80,6 @@ class _TabbarState extends State<Tabbar> {
           icon: Icon(Icons.home), 
           label: "Home",
           ),
-        
         BottomNavigationBarItem(
           icon: Icon(Icons.attach_money_rounded), 
           label: "Business",
@@ -56,12 +98,12 @@ class _TabbarState extends State<Tabbar> {
              HomeView(),
              ),  
           renderView(
-            2, 
+            1, 
             BusinessView(),
             ),
           renderView(
-            3,
-             ProfileView(usuario: usuario),
+            2,
+             ProfileView(),
              ),
         ],
       ),

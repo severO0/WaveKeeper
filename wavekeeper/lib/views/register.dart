@@ -17,18 +17,43 @@ class RegisterScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Color.fromARGB(255, 99, 99, 99),
-        title: Center(
-          child: Text(
-            'Wave Keeper',
-            style: TextStyle(
-                color: Color.fromRGBO(255, 255, 255, 1),
-                fontWeight: FontWeight.bold,
-                fontSize: 25), // Ajuste o tamanho do texto conforme necessário
+      appBar: PreferredSize(
+    preferredSize: Size.fromHeight(120.0),
+    child: AppBar(
+      backgroundColor: Colors.black,
+      automaticallyImplyLeading: false,
+      leading: IconButton(
+        icon: Icon(
+          Icons.arrow_back_rounded,
+          color: Colors.white,
+          size: 25.0,
+        ),
+        onPressed: () {
+          Navigator.of(context).pop();
+        },
+      ),
+      title: Text(
+        'Wave Keeper',
+        style: TextStyle(
+          color: Colors.white,
+          fontSize: 20.0,
+          fontWeight: FontWeight.bold,
+        ),
+      ),
+      flexibleSpace: Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            colors: [Colors.purple, Colors.black],
+            stops: [0.2, 1.0],
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
           ),
         ),
       ),
+      centerTitle: false,
+      elevation: 0.0,
+    ),
+  ),
       body: Container(
         padding: EdgeInsets.only(left: 10, right: 10),
         width: double.infinity,
@@ -39,7 +64,7 @@ class RegisterScreen extends StatelessWidget {
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
             colors: [
-              Color(0xFF616161),
+              Colors.black,
               Color(0xFF212121),
               Color(0xFF212121),
               Color(0xFF212121),
