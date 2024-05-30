@@ -59,7 +59,7 @@ class _HomeViewState extends State<HomeView> {
             width: MediaQuery.of(context).size.width,
             height: MediaQuery.of(context).size.height * .6,
             decoration: BoxDecoration(
-              color: Color(0xFf1C7A74),
+              color: Colors.purple,
             ),
           ), 
           SingleChildScrollView(
