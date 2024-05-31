@@ -3,6 +3,8 @@ import 'package:image_picker/image_picker.dart';
 import 'dart:io';
 
 import 'package:wavekeeper/views/profile/usuario.dart';
+
+import '../profile.dart';
 // final Usuario usuario;, required this.usuario
 class EdicaoPerfil extends StatefulWidget {
  
@@ -45,7 +47,12 @@ class _EdicaoPerfilState extends State<EdicaoPerfil> {
             size: 25.0,
           ),
           onPressed: () {
-            Navigator.of(context).pop();
+            Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => ProfileView(),
+                    ),
+            );
           },
         ),
         title: Text(

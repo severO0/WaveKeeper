@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:wavekeeper/views/login.dart';
+import 'package:wavekeeper/views/profile.dart';
 import 'package:wavekeeper/views/profile/audio.dart';
 import 'package:wavekeeper/views/profile/edicaoperfil.dart';
 import 'package:wavekeeper/views/profile/minhascompras.dart';
 import 'package:wavekeeper/views/profile/minhasvendas.dart';
 import 'package:wavekeeper/views/profile/privacidade.dart';
 import 'package:wavekeeper/views/profile/sobreApp.dart';
+import 'package:wavekeeper/views/profile/viewprofile.dart';
 
 void main() {
   runApp(MyApp());
@@ -42,7 +44,7 @@ class MyApp extends StatelessWidget {
         ),
       ),
       // Defina a tela de login como a primeira tela
-      home: LoginScreen(),
+      home: ProfileView(),
       routes: {
         '/minhasvendas': (context) => MinhasVendas(),
         '/minhascompras': (context) => MinhasCompras(),
@@ -50,6 +52,7 @@ class MyApp extends StatelessWidget {
         '/edicaoperfil': (context) => EdicaoPerfil(),
         '/audio': (context) => Audio(),
         '/sobreApp': (context) => SobreApp(),
+        '/viewProfile': (context) => ViewProfile(),
       }
 //usuario:Usuario(nome: nome, nomeArtistico: nomeArtistico, email: email, senha: senha)
     );

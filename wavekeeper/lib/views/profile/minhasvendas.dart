@@ -4,6 +4,8 @@ import 'package:wavekeeper/views/profile/cards/cardLetras.dart';
 import 'package:wavekeeper/views/profile/cards/cardMusicas.dart';
 import 'package:wavekeeper/views/profile/usuario.dart';
 
+import '../profile.dart';
+
 
 class MinhasVendas extends StatelessWidget {
   
@@ -22,7 +24,12 @@ class MinhasVendas extends StatelessWidget {
             size: 25.0,
           ),
           onPressed: () {
-            Navigator.of(context).pop();
+            Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => ProfileView(),
+                    ),
+            );
           },
         ),
         title: Text(

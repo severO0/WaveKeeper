@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:wavekeeper/views/profile.dart';
 import 'package:wavekeeper/views/profile/usuario.dart';
 
 
@@ -28,7 +29,12 @@ class _AudioState extends State<Audio> {
             size: 25.0,
           ),
           onPressed: () {
-            Navigator.of(context).pop();
+            Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => ProfileView(),
+                    ),
+            );
           },
         ),
         title: Text(

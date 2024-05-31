@@ -13,88 +13,94 @@ class ProfileView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(88.0),
-        child: AppBar(
-          backgroundColor: Colors.black,
-          automaticallyImplyLeading: false,
-          flexibleSpace: FlexibleSpaceBar(
-            background: Container(
-              width: 100.0,
-              height: 100.0,
-              decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  colors: [Colors.purple, Colors.black],
-                  stops: [0.2, 1.0],
-                  begin: AlignmentDirectional(0.0, -1.0),
-                  end: AlignmentDirectional(0, 1.0),
+  preferredSize: Size.fromHeight(88.0),
+  child: AppBar(
+    backgroundColor: Colors.black,
+    automaticallyImplyLeading: false,
+    flexibleSpace: FlexibleSpaceBar(
+      background: Container(
+        width: 100.0,
+        height: 100.0,
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            colors: [Colors.purple, Colors.black],
+            stops: [0.2, 1.0],
+            begin: AlignmentDirectional(0.0, -1.0),
+            end: AlignmentDirectional(0, 1.0),
+          ),
+        ),
+        child: Padding(
+          padding: EdgeInsets.all(16.0),
+          child: Row(
+            mainAxisSize: MainAxisSize.max,
+            children: [
+              Container(
+                width: 90.0,
+                height: 90.0,
+                decoration: BoxDecoration(
+                  color: Colors.black,
+                  shape: BoxShape.circle,
+                  border: Border.all(
+                    color: Colors.black,
+                    width: 2.0,
+                  ),
+                ),
+                child: ClipOval(
+                  child: Image.asset(
+                    'assets/wavekeeperlogo.jpg',
+                    width: 150.0,
+                    height: 150.0,
+                    fit: BoxFit.contain,
+                  ),
                 ),
               ),
-              child: Padding(
-                padding: EdgeInsets.all(16.0),
-                child: Row(
+              Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 0.0, 0.0),
+                child: Column(
                   mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Container(
-                        width: 90.0,
-                        height: 90.0,
-                        decoration: BoxDecoration(
-                          color: Colors.black,
-                          shape: BoxShape.circle,
-                          border: Border.all(
-                            color: Colors.black,
-                            width: 2.0,
+                    // Colocar a lógica para puxar os dados do usuário, puxar a foto, nome e nome artístico
+                    Text(
+                      'Samuel Duarte Gomes',
+                      style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                            fontFamily: 'Readex Pro',
+                            letterSpacing: 0.0,
+                            color: Colors.white,
                           ),
-                        ),
-                        child: ClipOval(
-                          child: Image.asset(
-                            'assets/wavekeeperlogo.jpg',
-                            width: 150.0,
-                            height: 150.0,
-                            fit: BoxFit.contain,
-                          ),
-                        ),
-                      ),
-
-
+                    ),
                     Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 0.0, 0.0),
-                      child: Column(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [ 
-                          // Colocar a lógica para puxar os dados do usuário, puxar a foto, nome e nome artístico
-                          Text(
-                            'Samuel Duarte Gomes',
-                            style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                                  fontFamily: 'Readex Pro',
-                                  letterSpacing: 0.0,
-                                  color: Colors.white
-                                ),
-                          ),
-                          Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
-                            child: Text(
-                              'Samueldg_23',
-                              style: Theme.of(context).textTheme.titleSmall?.copyWith(
-                                    fontFamily: 'Readex Pro',
-                                    letterSpacing: 0.0,
-                                    color: Colors.white
-                                  ),
+                      padding: EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
+                      child: Text(
+                        'Samueldg_23',
+                        style: Theme.of(context).textTheme.titleSmall?.copyWith(
+                              fontFamily: 'Readex Pro',
+                              letterSpacing: 0.0,
+                              color: Colors.white,
                             ),
-                          ),
-                        ],
                       ),
                     ),
                   ],
                 ),
               ),
-            ),
+            ],
           ),
-          centerTitle: true,
-          elevation: 10.0,
         ),
       ),
+    ),
+    centerTitle: true,
+    elevation: 10.0,
+    actions: [
+      IconButton(
+              icon: Icon(Icons.remove_red_eye, color: Colors.white),
+              onPressed: () {
+                Navigator.pushNamed(context, '/viewProfile');
+              },
+      ),
+    ],
+  ),
+),
       body: Container(
         color: Colors.black,
         child: ListView(
