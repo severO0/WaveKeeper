@@ -261,7 +261,11 @@ class LoginScreen extends StatelessWidget {
 
                   ),
                 ),
-                onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (context)=> RegisterScreen()));}),
+                onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (context)=> RegisterScreen()
+                )
+                );
+                }
+                ),
           ),
         ],
       ),

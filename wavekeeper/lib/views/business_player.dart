@@ -58,8 +58,11 @@ class _BusinessViewState extends State<BusinessPlayer> {
               ),
               Expanded(
                 flex: 2,
-                child: Center(
-                  child: ArtWorkImage(image: AssetImage("assets/album7.jpg")),
+                child: const Center(
+                  child: ArtWorkImage(
+                    image: AssetImage("assets/album11.jpg"),
+                    size:350,
+                    ),
                 ),
               ),
               Expanded(
@@ -86,10 +89,11 @@ class _BusinessViewState extends State<BusinessPlayer> {
                     ),
                     const SizedBox(height: 16),
                     StreamBuilder(
-                      stream: player.onPositionChanged,
+                      stream: player.onPlayerStateChanged,
                       builder: (context, snapshot) {
+                         final progress = snapshot.data is Duration ? snapshot.data as Duration : const Duration(seconds: 0);
                         return ProgressBar(
-                          progress: snapshot.data ?? const Duration(seconds: 0),
+                          progress: progress,
                           total: music.duration ?? const Duration(minutes: 4),
                           bufferedBarColor: Colors.white38,
                           baseBarColor: Colors.white10,
@@ -159,16 +163,17 @@ class _BusinessViewState extends State<BusinessPlayer> {
 }
 class ArtWorkImage extends StatelessWidget { 
     final ImageProvider image;
+    final double size;
 
-  const ArtWorkImage({required this.image});
+  const ArtWorkImage({required this.image, this.size = 100});
   
   @override
   Widget build(BuildContext context) {
     return Row(
       children: [
         Container(
-          width: 100, // Ajuste a largura conforme necessário
-          height: 100, // Ajuste a altura conforme necessário
+          width: size, // Ajuste a largura conforme necessário
+          height: size, // Ajuste a altura conforme necessário
           decoration: BoxDecoration(
             image: DecorationImage(
               image: image,

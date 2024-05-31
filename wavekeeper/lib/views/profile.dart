@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:wavekeeper/views/login.dart';
 
 import 'profile/usuario.dart';
 
@@ -129,7 +130,7 @@ class ProfileView extends StatelessWidget {
               alignment: AlignmentDirectional.center,
               child: ElevatedButton(
                 onPressed: () {
-                  print('Saindo ...');
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=> LoginScreen()),);
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.purple[500],
