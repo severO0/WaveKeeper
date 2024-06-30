@@ -13,7 +13,7 @@ class ProfileView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: PreferredSize(
-  preferredSize: Size.fromHeight(88.0),
+  preferredSize: Size.fromHeight(135.0),
   child: AppBar(
     backgroundColor: Colors.black,
     automaticallyImplyLeading: false,
@@ -21,7 +21,7 @@ class ProfileView extends StatelessWidget {
       background: Container(
         width: 100.0,
         height: 100.0,
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           gradient: LinearGradient(
             colors: [Colors.purple, Colors.black],
             stops: [0.2, 1.0],
@@ -30,7 +30,7 @@ class ProfileView extends StatelessWidget {
           ),
         ),
         child: Padding(
-          padding: EdgeInsets.all(16.0),
+          padding: const EdgeInsets.all(16.0),
           child: Row(
             mainAxisSize: MainAxisSize.max,
             children: [
@@ -55,7 +55,7 @@ class ProfileView extends StatelessWidget {
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 0.0, 0.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 0.0, 0.0),
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -71,7 +71,7 @@ class ProfileView extends StatelessWidget {
                           ),
                     ),
                     Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
+                      padding: const EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
                       child: Text(
                         'Samueldg_23',
                         style: Theme.of(context).textTheme.titleSmall?.copyWith(
@@ -93,7 +93,7 @@ class ProfileView extends StatelessWidget {
     elevation: 10.0,
     actions: [
       IconButton(
-              icon: Icon(Icons.remove_red_eye, color: Colors.white),
+              icon: const Icon(Icons.remove_red_eye, color: Colors.white),
               onPressed: () {
                 Navigator.pushNamed(context, '/viewProfile');
               },
@@ -114,12 +114,12 @@ class ProfileView extends StatelessWidget {
                     color: Colors.white,
                   ),
             ),
-            SizedBox(height: 12.0),
+            const SizedBox(height: 12.0),
             buildButton(context, icon: Icons.monetization_on_rounded, text: 'Minhas Vendas', routeName: '/minhasvendas'),
             buildButton(context, icon: Icons.shopping_cart_rounded, text: 'Minhas Compras', routeName: '/minhascompras'),
             buildButton(context, icon: Icons.privacy_tip_rounded, text: 'Privacidade', routeName: '/privacidade'),
             buildButton(context, icon: Icons.account_circle, text: 'Editar Conta', routeName: '/edicaoperfil'),
-            SizedBox(height: 16.0),
+            const SizedBox(height: 16.0),
             Text(
               'Geral',
               style: Theme.of(context).textTheme.titleSmall?.copyWith(
@@ -128,7 +128,7 @@ class ProfileView extends StatelessWidget {
                     color: Colors.white,
                   ),
             ),
-            SizedBox(height: 12.0),
+            const SizedBox(height: 12.0),
             buildButton(context, icon: Icons.error_outlined, text: 'Áudio', routeName: '/audio'),
             buildButton(context, icon: Icons.announcement_sharp, text: 'Sobre o APP', routeName: '/sobreApp'),
             SizedBox(height: 32.0),
@@ -140,7 +140,7 @@ class ProfileView extends StatelessWidget {
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.purple[500],
-                  padding: EdgeInsets.symmetric(horizontal: 24.0, vertical: 12.0),
+                  padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 12.0),
                   textStyle: Theme.of(context).textTheme.bodyLarge?.copyWith(
                         fontFamily: 'Readex Pro',
                         letterSpacing: 0.0,
@@ -149,7 +149,7 @@ class ProfileView extends StatelessWidget {
                     borderRadius: BorderRadius.circular(14.0),
                   ),
                 ),
-                child: Text(
+                child: const Text(
                   'Sair',
                   style: TextStyle(
                     color: Colors.white,
@@ -169,7 +169,7 @@ class ProfileView extends StatelessWidget {
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
           foregroundColor: Colors.white, backgroundColor: Colors.purple[500],
-          minimumSize: Size(double.infinity, 60),
+          minimumSize: const Size(double.infinity, 60),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(12.0),
           ),
@@ -180,7 +180,7 @@ class ProfileView extends StatelessWidget {
         child: Row(
           children: [
             Icon(icon, size: 24),
-            SizedBox(width: 12),
+            const SizedBox(width: 12),
             Expanded(
               child: Text(
                 text,
@@ -191,7 +191,7 @@ class ProfileView extends StatelessWidget {
                     ),
               ),
             ),
-            Icon(Icons.arrow_forward_ios, size: 18),
+            const Icon(Icons.arrow_forward_ios, size: 18),
           ],
         ),
       ),

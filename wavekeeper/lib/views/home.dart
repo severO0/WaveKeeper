@@ -22,6 +22,7 @@ class _HomeViewState extends State<HomeView> {
         return true;  
         }
       }
+      String saudacao = "";
    @override
   void initState() {
     super.initState();
@@ -48,6 +49,21 @@ class _HomeViewState extends State<HomeView> {
     }
     //}
     );
+    atualizarSaudacao();
+  }
+  void atualizarSaudacao() {
+    var horaAtual = DateTime.now().hour;
+    setState(() {
+      if (horaAtual >= 5 && horaAtual < 12) {
+        saudacao = "Bom dia";
+      } else if (horaAtual >= 12 && horaAtual < 18) {
+        saudacao = "Boa tarde";
+      } else if (horaAtual >= 18 && horaAtual < 22) {
+        saudacao = "Boa noite";
+      } else {
+        saudacao = "Boa madrugada";
+      }
+    });
   }
   @override
   Widget build(BuildContext context) {
@@ -90,7 +106,7 @@ class _HomeViewState extends State<HomeView> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
-                            "Recently Played",
+                            "Tocadas Recentemente",
                             style: Theme.of(context).textTheme.headlineSmall,
                           ),
                           Row(
@@ -143,20 +159,20 @@ class _HomeViewState extends State<HomeView> {
                         crossAxisAlignment: CrossAxisAlignment.stretch,
                         children: [
                           Text(
-                            "Good evening",
+                            saudacao,
                             style: Theme.of(context).textTheme.headlineSmall,
                           ),
                           SizedBox(height: 16),
                           Row(
                             children: [
                               RowAlbumCard(
-                                label: "Top 50 - Global",
-                                image: AssetImage("assets/top50.jpg"),
+                                label: "Musicas ",
+                                image: AssetImage("assets/Musicas.jpeg"),
                               ),
                               SizedBox(width: 16),
                               RowAlbumCard(
-                                label: "Best Mode",
-                                image: AssetImage("assets/album1.jpg"),
+                                label: "Favoritas",
+                                image: AssetImage("assets/nova.jpg"),
                               ),
                             ],
                           ),
@@ -164,13 +180,13 @@ class _HomeViewState extends State<HomeView> {
                           Row(
                             children: [
                               RowAlbumCard(
-                                label: "RapCaviar",
-                                image: AssetImage("assets/album2.jpg"),
+                                label: "Beats",
+                                image: AssetImage("assets/Beats.jpeg"),
                               ),
                               SizedBox(width: 16),
                               RowAlbumCard(
-                                label: "Eminem",
-                                image: AssetImage("assets/album5.jpg"),
+                                label: "Gratuitas",
+                                image: AssetImage("assets/nova.jpg"),
                               ),
                             ],
                           ),
@@ -178,13 +194,13 @@ class _HomeViewState extends State<HomeView> {
                           Row(
                             children: [
                               RowAlbumCard(
-                                label: "Top 50 - USA",
-                                image: AssetImage("assets/album9.jpg"),
+                                label: "Letras",
+                                image: AssetImage("assets/Letras.jpeg"),
                               ),
                               SizedBox(width: 16),
                               RowAlbumCard(
-                                label: "Pop Remix",
-                                image: AssetImage("assets/album10.jpg"),
+                                label: "Premium",
+                                image: AssetImage("assets/nova.jpg"),
                               ),
                             ],
                           ),
@@ -197,7 +213,7 @@ class _HomeViewState extends State<HomeView> {
                         Padding(
                           padding: const EdgeInsets.all(16.0),
                           child: Text(
-                            "Based on your recent listening",
+                            "Baseado no que você ouviu recente",
                             style: Theme.of(context).textTheme.headlineSmall,
                           ),
                         ),
@@ -244,7 +260,7 @@ class _HomeViewState extends State<HomeView> {
                         Padding(
                           padding: const EdgeInsets.all(16.0),
                           child: Text(
-                            "Rádio Recomendadas",
+                            "Recomendados",
                             style: Theme.of(context).textTheme.headlineSmall,
                           ),
                         ),

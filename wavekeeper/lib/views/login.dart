@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:wavekeeper/navigation/tabbar.dart'; // Importe a classe Tabbar.dart aqui
+import 'package:wavekeeper/navigation/tabbar.dart'; 
 import 'package:http/http.dart' as http;
 import 'package:wavekeeper/views/register.dart';
 import 'profile/usuario.dart';
@@ -20,7 +20,7 @@ class LoginScreen extends StatelessWidget {
       width: double.infinity,
       height: double.infinity,
       alignment: Alignment.topLeft,
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         gradient: LinearGradient(
           begin: Alignment.topCenter,
           end: Alignment.bottomCenter,
@@ -46,22 +46,23 @@ class LoginScreen extends StatelessWidget {
                   child: Image.asset(
                     'assets/wavekeeperlogo.jpg',
                     fit: BoxFit.cover,
-                    width: 180, // Ajuste o tamanho conforme necessário
-                    height: 180, // Ajuste o tamanho conforme necessário
+                    width: 180, 
+                    height: 180, 
                   ),
                 ),
-                Text(
+                const Text(
                   'Wave Keeper',
                   style: TextStyle(
                       color: Color.fromRGBO(255, 255, 255, 1),
+                      fontFamily: '',
                       fontWeight: FontWeight.bold,
-                      fontSize:
-                          25), // Ajuste o tamanho do texto conforme necessário
+                      fontSize: 25
+                   ),
                 ),
               ],
             ),
           ),
-          Text(
+          const Text(
             'E-mail ou nome de usuário',
             style: TextStyle(
               color: Colors.white,
@@ -69,15 +70,15 @@ class LoginScreen extends StatelessWidget {
               fontSize: 20,
             ),
           ),
-          SizedBox(height: 10),
+          const SizedBox(height: 10),
           Container(
-            padding: EdgeInsets.only(left: 10, top: 1, right: 1),
+            padding: const EdgeInsets.only(left: 10, top: 1, right: 1),
             decoration: BoxDecoration(
-              color: Color.fromARGB(0, 37, 35, 35),
-              borderRadius: BorderRadius.circular(10), // Borda arredondada
+              color: const Color.fromARGB(0, 37, 35, 35),
+              borderRadius: BorderRadius.circular(10), 
               border: Border.all(
                   color:
-                      const Color.fromARGB(255, 85, 85, 85)), // Borda visível
+                      const Color.fromARGB(255, 85, 85, 85)), 
             ),
             child: TextFormField(
               controller: emailController,
@@ -88,16 +89,16 @@ class LoginScreen extends StatelessWidget {
                 }
                 return null;
               },
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 border: InputBorder.none,
-                hintText: 'Digite seu e-mail', // Texto de dica dentro do campo
+                hintText: 'Digite seu e-mail', 
                 hintStyle:
-                    TextStyle(color: Colors.grey), // Estilo do texto de dica
+                    TextStyle(color: Colors.grey), 
               ),
             ),
           ),
-          SizedBox(height: 30), // Espaço entre os campos
-          Text(
+          SizedBox(height: 30), 
+          const Text(
             'Senha',
             style: TextStyle(
               color: Colors.white,
@@ -105,15 +106,15 @@ class LoginScreen extends StatelessWidget {
               fontSize: 20,
             ),
           ),
-          SizedBox(height: 10),
+          const SizedBox(height: 10),
 
           Container(
-            padding: EdgeInsets.only(left: 10, top: 1, right: 1),
+            padding: const EdgeInsets.only(left: 10, top: 1, right: 1),
             decoration: BoxDecoration(
-              color: Color.fromARGB(0, 37, 35, 35),
-              borderRadius: BorderRadius.circular(10), // Borda arredondada
+              color: const Color.fromARGB(0, 37, 35, 35),
+              borderRadius: BorderRadius.circular(10), 
               border: Border.all(
-                  color: Color.fromARGB(255, 85, 85, 85)), // Borda visível
+                  color: const Color.fromARGB(255, 85, 85, 85)),
             ),
             child: TextFormField(
               controller: passwordController,
@@ -127,26 +128,26 @@ class LoginScreen extends StatelessWidget {
                 }
                 return null;
               },
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 border: InputBorder.none,
-                hintText: 'Digite sua senha', // Texto de dica dentro do campo
+                hintText: 'Digite sua senha', 
                 hintStyle:
-                    TextStyle(color: Colors.grey), // Estilo do texto de dica
+                    TextStyle(color: Colors.grey), 
               ),
             ),
           ),
-          SizedBox(height: 50),
+          const SizedBox(height: 50),
 
           Container(
             width: 250,
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               color: Color.fromRGBO(174, 82, 200, 1.0),
               borderRadius: BorderRadius.all(
                 Radius.circular(30),
               ),
             ),
             child: TextButton(
-              child: Text(
+              child: const Text(
                 'Entrar',
                 style: TextStyle(
                   color: Colors.white,
@@ -221,7 +222,7 @@ class LoginScreen extends StatelessWidget {
             width: 250,
             decoration: BoxDecoration(
               color: Colors.transparent,
-              borderRadius: BorderRadius.all(
+              borderRadius: const BorderRadius.all(
                 Radius.circular(30),
               ),
               border: Border.all(
@@ -229,7 +230,7 @@ class LoginScreen extends StatelessWidget {
               ),
             ),
             child: TextButton(
-              child: Padding(
+              child: const Padding(
                 padding: EdgeInsets.all(1.0),
                 child: Text(
                   'Esqueceu a senha?',
@@ -245,14 +246,14 @@ class LoginScreen extends StatelessWidget {
           SizedBox(height: 10),
           Container(
             width: 250,
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               color: Colors.transparent,
               borderRadius: BorderRadius.all(
                 Radius.circular(30),
               ),
             ),
             child: TextButton(
-                child: Text(
+                child: const Text(
                   'Inscreva-se',
                   style: TextStyle(
                     color: Colors.white,

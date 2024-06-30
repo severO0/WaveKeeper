@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class CardMusica extends StatelessWidget {
+  const CardMusica({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Padding(

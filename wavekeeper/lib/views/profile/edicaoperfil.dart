@@ -41,7 +41,7 @@ class _EdicaoPerfilState extends State<EdicaoPerfil> {
         backgroundColor: Colors.black,
         automaticallyImplyLeading: false,
         leading: IconButton(
-          icon: Icon(
+          icon: const Icon(
             Icons.arrow_back_rounded,
             color: Colors.white,
             size: 25.0,
@@ -50,12 +50,12 @@ class _EdicaoPerfilState extends State<EdicaoPerfil> {
             Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => ProfileView(),
+                      builder: (context) => const ProfileView(),
                     ),
             );
           },
         ),
-        title: Text(
+        title: const Text(
           'Editar Perfil',
           style: TextStyle(
             color: Colors.white,
@@ -66,7 +66,7 @@ class _EdicaoPerfilState extends State<EdicaoPerfil> {
         centerTitle: false,
         elevation: 0.0,
         flexibleSpace: Container(
-          decoration: BoxDecoration(
+          decoration:const BoxDecoration(
             gradient: LinearGradient(
               colors: [Colors.purple, Colors.black],
               stops: [0.2, 1.0],
@@ -78,19 +78,18 @@ class _EdicaoPerfilState extends State<EdicaoPerfil> {
       ),
       body: Center(
         child: Container(
-          width: 330,
-          height: 580,
+          margin: const EdgeInsets.all(24),
           decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.circular(20),
           ),
           child: Padding(
-            padding: EdgeInsets.all(8.0),
+            padding: const EdgeInsets.all(8.0),
             child: Column(
               mainAxisSize: MainAxisSize.max,
               children: [
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 16.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 16.0),
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -104,17 +103,17 @@ class _EdicaoPerfilState extends State<EdicaoPerfil> {
                         child: Container(
                           width: 100.0,
                           height: 100.0,
-                          decoration: BoxDecoration(
+                          decoration: const BoxDecoration(
                             color: Colors.white,
                             shape: BoxShape.circle,
                           ),
                           child: Padding(
-                            padding: EdgeInsets.all(2.0),
+                            padding: const EdgeInsets.all(2.0),
                             child: Container(
                               width: 90.0,
                               height: 90.0,
                               clipBehavior: Clip.antiAlias,
-                              decoration: BoxDecoration(
+                              decoration: const BoxDecoration(
                                 shape: BoxShape.circle,
                               ),
                               child: _imageFile != null
@@ -135,15 +134,14 @@ class _EdicaoPerfilState extends State<EdicaoPerfil> {
                 ),
                 ..._buildTextFields(),
                 Align(
-                  alignment: AlignmentDirectional(0.0, 0.05),
+                  alignment: const AlignmentDirectional(0.0, 0.05),
                   child: Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 0.0),
+                    padding: const EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 0.0),
                     child: ElevatedButton(
                       onPressed: () {
                         // Salvar alterações
                         Navigator.of(context).pop();
                       },
-                      child: Text('Salvar Alterações'),
                       style: ElevatedButton.styleFrom(
                         foregroundColor: Colors.white,
                         backgroundColor: Colors.purple[400],
@@ -152,6 +150,7 @@ class _EdicaoPerfilState extends State<EdicaoPerfil> {
                           borderRadius: BorderRadius.circular(12.0),
                         ),
                       ),
+                      child: const Text('Salvar Alterações'),
                     ),
                   ),
                 ),
@@ -167,18 +166,18 @@ class _EdicaoPerfilState extends State<EdicaoPerfil> {
     return List.generate(
       hintTexts.length,
       (index) => Padding(
-        padding: EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 16.0),
+        padding: const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 16.0),
         child: TextFormField(
-          style: TextStyle(color: Colors.black),
+          style: const TextStyle(color: Colors.black),
           decoration: InputDecoration(
             hintText: hintTexts[index],
-            hintStyle: TextStyle(color: Colors.black54),
+            hintStyle: const TextStyle(color: Colors.black54),
             enabledBorder: OutlineInputBorder(
-              borderSide: BorderSide(color: Colors.black),
+              borderSide: const BorderSide(color: Colors.black),
               borderRadius: BorderRadius.circular(12.0),
             ),
             focusedBorder: OutlineInputBorder(
-              borderSide: BorderSide(color: Colors.purple),
+              borderSide: const BorderSide(color: Colors.purple),
               borderRadius: BorderRadius.circular(12.0),
             ),
           ),

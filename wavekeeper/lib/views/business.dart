@@ -13,12 +13,12 @@ class _BusinessViewState extends State<BusinessView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: PreferredSize(
-    preferredSize: Size.fromHeight(100.0),
+    preferredSize: Size.fromHeight(80.0),
     child: AppBar(
       backgroundColor: Colors.black,
       automaticallyImplyLeading: false,
-      title: Text(
-        'Business Works',
+      title: const Text(
+        'Tela de Negócios',
         style: TextStyle(
           color: Colors.white,
           fontSize: 25.0,
@@ -26,7 +26,7 @@ class _BusinessViewState extends State<BusinessView> {
         ),
       ),
       flexibleSpace: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           gradient: LinearGradient(
             colors: [Colors.purple, Colors.black],
             stops: [0.1, 1.0],
@@ -69,43 +69,43 @@ class _BusinessViewState extends State<BusinessView> {
                   children: [
                     SongCard(
                       image: AssetImage("assets/album2.jpg"),
-                      songName: "Song Name 1",
-                      artistName: "Artist 1",
+                      songName: "Nome da música",
+                      artistName: "Nome do Artista",
                       price: "R\$ 0.00",
                     ),
                     SizedBox(height: 16),
                     SongCard(
                       image: AssetImage("assets/album6.jpg"),
-                      songName: "Song Name 2",
-                      artistName: "Artist 2",
+                      songName: "Nome da música",
+                      artistName: "Nome do Artista",
                       price: "R\$ 0.00",
                     ),
                     SizedBox(height: 16),
                     SongCard(
                       image: AssetImage("assets/album9.jpg"),
-                      songName: "Song Name 3",
-                      artistName: "Artist 3",
+                      songName: "Nome da música",
+                      artistName: "Nome do Artista",
                       price: "R\$ 0.00",
                     ),
                     SizedBox(height: 16),
                     SongCard(
                       image: AssetImage("assets/album4.jpg"),
-                      songName: "Song Name 4",
-                      artistName: "Artist 4",
+                      songName: "Nome da música",
+                      artistName: "Nome do Artista",
                       price: "R\$ 0.00",
                     ),
                     SizedBox(height: 16),
                     SongCard(
                       image: AssetImage("assets/album5.jpg"),
-                      songName: "Song Name 5",
-                      artistName: "Artist 5",
+                      songName: "Nome da música",
+                      artistName: "Nome do Artista",
                       price: "R\$ 0.00",
                     ),
                     SizedBox(height: 16),
                     SongCard(
                       image: AssetImage("assets/album1.jpg"),
-                      songName: "Song Name 6",
-                      artistName: "Artist 6",
+                      songName: "Nome da música",
+                      artistName: "Nome do Artista",
                       price: "R\$ 0.00",
                     ),
                   ],

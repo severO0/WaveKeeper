@@ -10,7 +10,7 @@ class SobreApp extends StatelessWidget {
         backgroundColor: Colors.black,
         automaticallyImplyLeading: false,
         leading: IconButton(
-          icon: Icon(
+          icon: const Icon(
             Icons.arrow_back_rounded,
             color: Colors.white,
             size: 25.0,
@@ -19,7 +19,7 @@ class SobreApp extends StatelessWidget {
             Navigator.of(context).pop();
           },
         ),
-        title: Text(
+        title: const Text(
           'Sobre o Wave Keeper',
           style: TextStyle(
             fontFamily: 'Outfit',
@@ -29,7 +29,7 @@ class SobreApp extends StatelessWidget {
           ),
         ),
         flexibleSpace: Container(
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             gradient: LinearGradient(
               colors: [Colors.purple, Colors.black],
               stops: [0.2, 1.0],
@@ -42,40 +42,42 @@ class SobreApp extends StatelessWidget {
         elevation: 0.0,
       ),
       backgroundColor: Colors.black,
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          SizedBox(height: 10.0),
-          Center(
-            child: Container(
-              width: 330,
-              height: 630,
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(20),
-              ),
-              child: Padding(
-                padding: EdgeInsets.all(16.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Padding(
-                      padding: EdgeInsets.only(top: 8.0, bottom: 12.0),
-                      child: Text(
-                        'Este trabalho tem como objetivo explicar o desenvolvimento de um aplicativo de música destinado a pequenos e médios produtores, onde eles poderão subir a suas obras no aplicativo e ele irá registrar o seu trabalho, para assim esses criadores possam ter as suas músicas e beats registrados em seu nome de uma maneira mais fácil e consequentemente se protegendo de eventuais plágios. Além disso, o aplicativo funcionará como um mercado online só que voltado a compra e venda de músicas e beats, isso irá auxiliar essas pessoas a aumentaram ou criarem uma renda extra ou ajudará a eles criarem músicas novas, o comércio poderá também ser utilizado por youtubers que estão à procura de trilhas para os seus vídeos.',
-                        style: TextStyle(
-                          fontFamily: 'Readex Pro',
-                          letterSpacing: 0.0,
-                          color: Colors.black,
+      body: SingleChildScrollView(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            const SizedBox(height: 20.0),
+            Center(
+              child: Container(
+                margin: const EdgeInsets.all(24),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                child: const Padding(
+                  padding: EdgeInsets.all(16.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.only(top: 8.0, bottom: 12.0),
+                        child: Text(
+                          'O mercado da música é uma parte significativa da economia mundial, movimentando cerca de 7,1 bilhões de dólares em 2022, com um grande crescimento impulsionado pelos serviços de streaming. No entanto, pequenos e médios produtores de música frequentemente enfrentam desafios para registrar suas obras e proteger seus direitos autorais. Este trabalho tem como objetivo desenvolver um aplicativo que permita a esses produtores subir suas músicas e beats, registrando-os de maneira mais fácil e protegendo-os contra plágios. Além disso, o aplicativo funcionará como um mercado online para a compra e venda de músicas e beats, auxiliando produtores a criarem ou aumentarem sua renda extra. O comércio poderá também ser utilizado por YouTubers em busca de trilhas sonoras para seus vídeos. O desenvolvimento do aplicativo foi realizado utilizando o framework Flutter, devido à sua versatilidade e capacidade de desenvolver aplicações multiplataforma. O Firebase foi utilizado como backend para gerenciamento de banco de dados e autenticação dos usuários. Os resultados esperados incluem um aumento na visibilidade e proteção dos pequenos produtores, proporcionando-lhes uma plataforma para comercializar suas obras e colaborar com outros artistas. A conclusão do trabalho destaca a importância de tecnologias acessíveis e eficazes para o crescimento do mercado musical e a proteção dos direitos autorais na era digital.',
+                          style: TextStyle(
+                            fontSize: 18.0,
+                            fontFamily: 'Readex Pro',
+                            letterSpacing: 0.0,
+                            color: Colors.black,
+                          ),
                         ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

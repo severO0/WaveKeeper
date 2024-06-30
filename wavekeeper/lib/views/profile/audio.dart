@@ -23,7 +23,7 @@ class _AudioState extends State<Audio> {
         backgroundColor: Colors.black,
         automaticallyImplyLeading: false,
         leading: IconButton(
-          icon: Icon(
+          icon: const Icon(
             Icons.arrow_back_rounded,
             color: Colors.white,
             size: 25.0,
@@ -32,12 +32,12 @@ class _AudioState extends State<Audio> {
             Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => ProfileView(),
+                      builder: (context) => const ProfileView(),
                     ),
             );
           },
         ),
-        title: Text(
+        title: const Text(
           'Áudio',
           style: TextStyle(
             color: Colors.white,
@@ -46,7 +46,7 @@ class _AudioState extends State<Audio> {
           ),
         ),
         flexibleSpace: Container(
-          decoration: BoxDecoration(
+          decoration:const BoxDecoration(
             gradient: LinearGradient(
               colors: [Colors.purple, Colors.black],
               stops: [0.2, 1.0],
@@ -62,11 +62,10 @@ class _AudioState extends State<Audio> {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          SizedBox(height: 10.0),
+          const SizedBox(height: 10.0),
           Center(
             child: Container(
-              width: 350,
-              height: 600,
+              margin: const EdgeInsets.all(24),
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(20),
@@ -75,7 +74,7 @@ class _AudioState extends State<Audio> {
                 padding: EdgeInsets.all(12.0),
                 child: Column(
                   children: [
-                    Padding(
+                    const Padding(
                       padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
@@ -99,7 +98,7 @@ class _AudioState extends State<Audio> {
                           switchListTileValue1 = newValue;
                         });
                       },
-                      title: Text(
+                      title:const Text(
                         'Ajustar qualidade automaticamente',
                         style: TextStyle(
                           color: Colors.black,
@@ -119,7 +118,7 @@ class _AudioState extends State<Audio> {
                       activeTrackColor: Colors.purple[200],
                       dense: false,
                       controlAffinity: ListTileControlAffinity.trailing,
-                      contentPadding: EdgeInsets.symmetric(horizontal: 24.0, vertical: 12.0),
+                      contentPadding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 12.0),
                     ),
                     SwitchListTile.adaptive(
                       value: switchListTileValue2 ?? true,
@@ -128,7 +127,7 @@ class _AudioState extends State<Audio> {
                           switchListTileValue2 = newValue;
                         });
                       },
-                      title: Text(
+                      title: const Text(
                         'Exibir os arquivos de áudio/beats deste dispositivo',
                         style: TextStyle(
                           color: Colors.black,
@@ -148,7 +147,7 @@ class _AudioState extends State<Audio> {
                       activeTrackColor: Colors.purple[200],
                       dense: false,
                       controlAffinity: ListTileControlAffinity.trailing,
-                      contentPadding: EdgeInsets.symmetric(horizontal: 24.0, vertical: 12.0),
+                      contentPadding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 12.0),
                     ),
                     SwitchListTile.adaptive(
                       value: switchListTileValue3 ?? true,
@@ -157,7 +156,7 @@ class _AudioState extends State<Audio> {
                           switchListTileValue3 = newValue;
                         });
                       },
-                      title: Text(
+                      title:const  Text(
                         'Normalizar volume',
                         style: TextStyle(
                           color: Colors.black,
@@ -177,25 +176,25 @@ class _AudioState extends State<Audio> {
                       activeTrackColor: Colors.purple[200],
                       dense: false,
                       controlAffinity: ListTileControlAffinity.trailing,
-                      contentPadding: EdgeInsets.symmetric(horizontal: 24.0, vertical: 12.0),
+                      contentPadding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 12.0),
                     ),
                     Padding(
-                      padding: EdgeInsets.only(top: 15.0),
+                      padding: const EdgeInsets.only(top: 15.0),
                       child: ElevatedButton(
                         onPressed: () {
                           Navigator.of(context).pop();
                         },
-                        child: Text(
-                          'Salvar Alterações',
-                          style: TextStyle(color: Colors.white),
-                        ),
                         style: ElevatedButton.styleFrom(
-                          minimumSize: Size(160.0, 50.0),
+                          minimumSize: const Size(160.0, 50.0),
                           backgroundColor: Colors.purple[300],
                           elevation: 3.0,
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(30.0),
                           ),
+                        ),
+                        child: const Text(
+                          'Salvar Alterações',
+                          style: TextStyle(color: Colors.white),
                         ),
                       ),
                     ),

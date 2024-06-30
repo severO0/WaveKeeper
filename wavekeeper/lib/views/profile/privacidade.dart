@@ -10,7 +10,7 @@ class Privacidade extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.black,
         leading: IconButton(
-          icon: Icon(
+          icon: const Icon(
             Icons.arrow_back_rounded,
             color: Colors.white,
             size: 25.0,
@@ -19,7 +19,7 @@ class Privacidade extends StatelessWidget {
             Navigator.of(context).pop();
           },
         ),
-        title: Text(
+        title: const Text(
           'Privacidade',
           style: TextStyle(
             fontFamily: 'Outfit',
@@ -28,7 +28,7 @@ class Privacidade extends StatelessWidget {
           ),
         ),
         flexibleSpace: Container(
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             gradient: LinearGradient(
               colors: [Colors.purple, Colors.black],
               stops: [0.2, 1.0],
@@ -43,14 +43,13 @@ class Privacidade extends StatelessWidget {
       backgroundColor: Colors.black,
       body: Center(
         child: Container(
-          width: 320,
-          height: 550,
+          margin: const EdgeInsets.all(24),
           decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.circular(20),
           ),
-          child: Padding(
-            padding: const EdgeInsets.all(0.0),
+          child: const Padding(
+            padding: EdgeInsets.all(0.0),
             child: PrivacidadeBody(),
           ),
         ),
@@ -76,7 +75,7 @@ class _PrivacidadeBodyState extends State<PrivacidadeBody> {
     return Column(
       mainAxisSize: MainAxisSize.max,
       children: [
-        Row(
+        const Row(
           mainAxisSize: MainAxisSize.max,
           children: [
             Expanded(
@@ -96,7 +95,7 @@ class _PrivacidadeBodyState extends State<PrivacidadeBody> {
           onChanged: (newValue) {
             setState(() => switchListTileValue1 = newValue);
           },
-          title: Text(
+          title: const Text(
             'Conteúdo explícito',
             style: TextStyle(
               fontFamily: 'Readex Pro',
@@ -118,14 +117,14 @@ class _PrivacidadeBodyState extends State<PrivacidadeBody> {
           activeTrackColor: Colors.purple[200],
           dense: false,
           controlAffinity: ListTileControlAffinity.trailing,
-          contentPadding: EdgeInsets.symmetric(horizontal: 24.0, vertical: 12.0),
+          contentPadding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 12.0),
         ),
         SwitchListTile.adaptive(
           value: switchListTileValue2,
           onChanged: (newValue) {
             setState(() => switchListTileValue2 = newValue);
           },
-          title: Text(
+          title: const Text(
             'Envio de mensagens',
             style: TextStyle(
               fontFamily: 'Readex Pro',
@@ -147,14 +146,14 @@ class _PrivacidadeBodyState extends State<PrivacidadeBody> {
           activeTrackColor: Colors.purple[200],
           dense: false,
           controlAffinity: ListTileControlAffinity.trailing,
-          contentPadding: EdgeInsets.symmetric(horizontal: 24.0, vertical: 12.0),
+          contentPadding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 12.0),
         ),
         SwitchListTile.adaptive(
           value: switchListTileValue3,
           onChanged: (newValue) {
             setState(() => switchListTileValue3 = newValue);
           },
-          title: Text(
+          title: const Text(
             'Serviço de Localização',
             style: TextStyle(
               fontFamily: 'Readex Pro',
@@ -176,26 +175,26 @@ class _PrivacidadeBodyState extends State<PrivacidadeBody> {
           activeTrackColor: Colors.purple[200],
           dense: false,
           controlAffinity: ListTileControlAffinity.trailing,
-          contentPadding: EdgeInsets.symmetric(horizontal: 24.0, vertical: 12.0),
+          contentPadding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 12.0),
         ),
         const SizedBox(height: 24.0),
         ElevatedButton(
           onPressed: () {
             Navigator.of(context).pop();
           },
-          child: Text(
-            'Salvar Alterações',
-            style: TextStyle(
-              fontFamily: 'Readex Pro',
-              color: Colors.white,
-            ),
-          ),
           style: ElevatedButton.styleFrom(
             minimumSize: Size(170.0, 50.0),
             backgroundColor: Colors.purple,
             elevation: 3.0,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(30.0),
+            ),
+          ),
+          child: const Text(
+            'Salvar Alterações',
+            style: TextStyle(
+              fontFamily: 'Readex Pro',
+              color: Colors.white,
             ),
           ),
         ),

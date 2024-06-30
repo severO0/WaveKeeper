@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:wavekeeper/views/profile/cards/cardBeats.dart';
-import 'package:wavekeeper/views/profile/cards/cardLetras.dart';
-import 'package:wavekeeper/views/profile/cards/cardMusicas.dart';
+import 'package:wavekeeper/views/profile/models/cardBeats.dart';
+import 'package:wavekeeper/views/profile/models/cardLetras.dart';
+import 'package:wavekeeper/views/profile/models/cardMusicas.dart';
 import 'package:wavekeeper/views/profile/usuario.dart';
 
 import '../profile.dart';
@@ -18,7 +18,7 @@ class MinhasCompras extends StatelessWidget {
         backgroundColor: Colors.black,
         automaticallyImplyLeading: false,
         leading: IconButton(
-          icon: Icon(
+          icon: const Icon(
             Icons.arrow_back_rounded,
             color: Colors.white,
             size: 25.0,
@@ -27,12 +27,12 @@ class MinhasCompras extends StatelessWidget {
             Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => ProfileView(),
+                      builder: (context) => const ProfileView(),
                     ),
             );
           },
         ),
-        title: Text(
+        title: const Text(
           'Minhas Compras',
           style: TextStyle(
             fontFamily: 'Outfit',
@@ -41,7 +41,7 @@ class MinhasCompras extends StatelessWidget {
           ),
         ),
         flexibleSpace: Container(
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             gradient: LinearGradient(
               colors: [Colors.purple, Colors.black],
               stops: [0.2, 1.0],
@@ -57,7 +57,7 @@ class MinhasCompras extends StatelessWidget {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          SizedBox(height: 10), 
+          const SizedBox(height: 10), 
           Center(
             child: Container(
               width: 350,
@@ -70,7 +70,7 @@ class MinhasCompras extends StatelessWidget {
                 length: 3,
                 child: Column(
                   children: [
-                    TabBar(
+                    const TabBar(
                       labelStyle: TextStyle(
                         fontFamily: 'Readex Pro',
                         letterSpacing: 0.0,

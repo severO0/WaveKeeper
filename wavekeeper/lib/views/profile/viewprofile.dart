@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:wavekeeper/views/profile/cards/cardMusicas.dart';
-import 'package:wavekeeper/views/profile/cards/cardLetras.dart';
+import 'package:wavekeeper/views/profile/models/cardMusicas.dart';
+import 'package:wavekeeper/views/profile/models/cardLetras.dart';
 
 import '../profile.dart';
 
@@ -14,7 +14,7 @@ class ViewProfile extends StatelessWidget {
           backgroundColor: Colors.black,
           automaticallyImplyLeading: false,
           leading: IconButton(
-            icon: Icon(
+            icon: const Icon(
               Icons.arrow_back_rounded,
               color: Colors.white,
               size: 25.0,
@@ -23,13 +23,13 @@ class ViewProfile extends StatelessWidget {
               Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => ProfileView(),
+                      builder: (context) => const ProfileView(),
                     ),
             );
             },
           ),
           flexibleSpace: Container(
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               gradient: LinearGradient(
                 colors: [Colors.purple, Colors.black],
                 stops: [0.2, 1.0],
@@ -67,10 +67,9 @@ class ViewProfile extends StatelessWidget {
                       ),
                     ],
                   ),
-                  SizedBox(width: 16.0),
+                  const SizedBox(width: 16.0),
                   Container(
-                    width: 90.0,
-                    height: 90.0,
+                    margin: const EdgeInsets.fromLTRB(0, 8, 0, 8),
                     decoration: BoxDecoration(
                       color: Colors.black,
                       shape: BoxShape.circle,
@@ -83,8 +82,8 @@ class ViewProfile extends StatelessWidget {
                       child: Image.asset(
                         // puxar a foto do usuário
                         'assets/wavekeeperlogo.jpg',
-                        width: 150.0,
-                        height: 150.0,
+                        width: 100.0,
+                        height: 100.0,
                         fit: BoxFit.contain,
                       ),
                     ),
@@ -107,7 +106,7 @@ class ViewProfile extends StatelessWidget {
               'Descrição do usuário vai aqui. Biografia ou descrição pessoal.',
               style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: Colors.white),
             ),
-            SizedBox(height: 20.0),
+            const SizedBox(height: 20.0),
             Text(
               'Obras',
               style: Theme.of(context).textTheme.titleLarge?.copyWith(color: Colors.white),

@@ -78,15 +78,15 @@ class _TabbarState extends State<Tabbar> {
         //NOME DOS BOTOES DA GRID PRINCIPAL
         BottomNavigationBarItem(
           icon: Icon(Icons.home), 
-          label: "Home",
+          label: "Início",
           ),
         BottomNavigationBarItem(
           icon: Icon(Icons.attach_money_rounded), 
-          label: "Business",
+          label: "Negócios",
           ),
         BottomNavigationBarItem(
           icon: Icon(Icons.person), 
-          label: "Profile",
+          label: "Perfil",
           ),
         
       ],

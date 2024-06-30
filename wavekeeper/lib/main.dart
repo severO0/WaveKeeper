@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:wavekeeper/views/business.dart';
+import 'package:wavekeeper/views/home.dart';
 import 'package:wavekeeper/views/login.dart';
 import 'package:wavekeeper/views/profile.dart';
 import 'package:wavekeeper/views/profile/audio.dart';
@@ -30,7 +32,7 @@ class MyApp extends StatelessWidget {
       darkTheme: ThemeData(
         scaffoldBackgroundColor: Colors.black,
         brightness: Brightness.dark,
-        bottomNavigationBarTheme: BottomNavigationBarThemeData(
+        bottomNavigationBarTheme: const BottomNavigationBarThemeData(
           backgroundColor: Colors.white10,
           type: BottomNavigationBarType.fixed,
           selectedLabelStyle: TextStyle(
@@ -43,15 +45,15 @@ class MyApp extends StatelessWidget {
           unselectedItemColor: Colors.white38,
         ),
       ),
-      // Defina a tela de login como a primeira tela
-      home: ProfileView(),
+     
+      home: LoginScreen(),
       routes: {
-        '/minhasvendas': (context) => MinhasVendas(),
-        '/minhascompras': (context) => MinhasCompras(),
-        '/privacidade': (context) => Privacidade(),
-        '/edicaoperfil': (context) => EdicaoPerfil(),
-        '/audio': (context) => Audio(),
-        '/sobreApp': (context) => SobreApp(),
+        '/minhasvendas': (context) => const MinhasVendas(),
+        '/minhascompras': (context) => const MinhasCompras(),
+        '/privacidade': (context) => const Privacidade(),
+        '/edicaoperfil': (context) => const EdicaoPerfil(),
+        '/audio': (context) => const Audio(),
+        '/sobreApp': (context) => const SobreApp(),
         '/viewProfile': (context) => ViewProfile(),
       }
 //usuario:Usuario(nome: nome, nomeArtistico: nomeArtistico, email: email, senha: senha)

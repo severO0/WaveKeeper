@@ -3,8 +3,8 @@
 
     <application
         android:name="io.flutter.plugins.MyApplication"
-        android:label="wavekeeper"
-        android:icon="@mipmap/ic_launcher">
+        android:label="Wave Keeper"
+        android:icon="@mipmap/launcher_icon">
         <activity
             android:name=".MainActivity"
             android:exported="true"
