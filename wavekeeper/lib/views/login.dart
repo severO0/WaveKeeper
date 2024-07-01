@@ -1,8 +1,9 @@
 import 'dart:convert';
 
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:wavekeeper/navigation/tabbar.dart'; 
+import 'package:wavekeeper/navigation/tabbar.dart';
 import 'package:http/http.dart' as http;
 import 'package:wavekeeper/views/register.dart';
 import 'profile/usuario.dart';
@@ -11,6 +12,39 @@ class LoginScreen extends StatelessWidget {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
   final _formKey = GlobalKey<FormState>();
+  var isAuthenticated = false;
+
+  Future<bool> loginWithGet(email, password) async {
+    var dio = Dio();
+    // Substitua 'http://10.0.2.2:8080/login' pelo endpoint da sua API de login
+    var url = 'http://10.0.2.2:8080/usuario/login';
+
+    try {
+      // Enviando 'email' e 'password' como headers
+      var response = await dio.get(url,
+          options: Options(headers: {
+            'email':
+                email, // Assumindo que emailController é um TextEditingController
+            'senha':
+                password, // Assumindo que passwordController é um TextEditingController
+          }));
+
+      if (response.statusCode == 200) {
+        // Processa a resposta
+
+        print('Login bem-sucedido: ${response.data}');
+        return true;
+      } else {
+        // Trata respostas de erro
+        print('Erro de login: ${response.statusCode}');
+        return false;
+      }
+    } on DioError catch (e) {
+      // Trata erros de requisição
+      print('Erro ao fazer login: ${e.message}');
+      return false;
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -46,8 +80,8 @@ class LoginScreen extends StatelessWidget {
                   child: Image.asset(
                     'assets/wavekeeperlogo.jpg',
                     fit: BoxFit.cover,
-                    width: 180, 
-                    height: 180, 
+                    width: 180,
+                    height: 180,
                   ),
                 ),
                 const Text(
@@ -56,8 +90,7 @@ class LoginScreen extends StatelessWidget {
                       color: Color.fromRGBO(255, 255, 255, 1),
                       fontFamily: '',
                       fontWeight: FontWeight.bold,
-                      fontSize: 25
-                   ),
+                      fontSize: 25),
                 ),
               ],
             ),
@@ -75,10 +108,8 @@ class LoginScreen extends StatelessWidget {
             padding: const EdgeInsets.only(left: 10, top: 1, right: 1),
             decoration: BoxDecoration(
               color: const Color.fromARGB(0, 37, 35, 35),
-              borderRadius: BorderRadius.circular(10), 
-              border: Border.all(
-                  color:
-                      const Color.fromARGB(255, 85, 85, 85)), 
+              borderRadius: BorderRadius.circular(10),
+              border: Border.all(color: const Color.fromARGB(255, 85, 85, 85)),
             ),
             child: TextFormField(
               controller: emailController,
@@ -91,13 +122,12 @@ class LoginScreen extends StatelessWidget {
               },
               decoration: const InputDecoration(
                 border: InputBorder.none,
-                hintText: 'Digite seu e-mail', 
-                hintStyle:
-                    TextStyle(color: Colors.grey), 
+                hintText: 'Digite seu e-mail',
+                hintStyle: TextStyle(color: Colors.grey),
               ),
             ),
           ),
-          SizedBox(height: 30), 
+          SizedBox(height: 30),
           const Text(
             'Senha',
             style: TextStyle(
@@ -107,14 +137,12 @@ class LoginScreen extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 10),
-
           Container(
             padding: const EdgeInsets.only(left: 10, top: 1, right: 1),
             decoration: BoxDecoration(
               color: const Color.fromARGB(0, 37, 35, 35),
-              borderRadius: BorderRadius.circular(10), 
-              border: Border.all(
-                  color: const Color.fromARGB(255, 85, 85, 85)),
+              borderRadius: BorderRadius.circular(10),
+              border: Border.all(color: const Color.fromARGB(255, 85, 85, 85)),
             ),
             child: TextFormField(
               controller: passwordController,
@@ -130,14 +158,12 @@ class LoginScreen extends StatelessWidget {
               },
               decoration: const InputDecoration(
                 border: InputBorder.none,
-                hintText: 'Digite sua senha', 
-                hintStyle:
-                    TextStyle(color: Colors.grey), 
+                hintText: 'Digite sua senha',
+                hintStyle: TextStyle(color: Colors.grey),
               ),
             ),
           ),
           const SizedBox(height: 50),
-
           Container(
             width: 250,
             decoration: const BoxDecoration(
@@ -155,6 +181,7 @@ class LoginScreen extends StatelessWidget {
                 ),
               ),
               onPressed: () async {
+                /*
                 // Lógica de autenticação e navegação
                 String email = emailController.text;
                 String password = passwordController.text;
@@ -178,9 +205,7 @@ class LoginScreen extends StatelessWidget {
                       nomeArtistico: "FULANINHO",
                       email: email,
                       senha: password);
-
                   Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => Tabbar(usuario: usuario)));
-                    
                 }
                 if (email.isNotEmpty && password.isNotEmpty) {
                   var url = Uri.parse('https://dummyjson.com/auth/login');
@@ -196,6 +221,8 @@ class LoginScreen extends StatelessWidget {
                   print(response
                       .statusCode); // Exibe o código de status da resposta
 
+
+
                   // Primeiro converte para um Map<k, v>
                   final Map parsed = jsonDecode(response.body);
 
@@ -209,14 +236,37 @@ class LoginScreen extends StatelessWidget {
                       email: email,
                       senha: password);
 
-                  if (isAuthenticated) {
+                  if () {
                     Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => Tabbar(usuario: usuario)));
                   }
+
+
+
+
+                }
+
+                */
+                var email = emailController.text;
+                var password = passwordController.text;
+                var usuario = Usuario(
+                    id: 1,
+                    nome: "FULANO DE TAL",
+                    nomeArtistico: "FULANINHO",
+                    email: email,
+                    senha: password);
+
+                // Aguarda o resultado da função loginWithGet
+                bool isAuthenticated = await loginWithGet(email, password);
+
+                if (isAuthenticated) {
+                  Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => Tabbar(usuario: usuario)));
                 }
               },
             ),
           ),
-
           SizedBox(height: 20),
           Container(
             width: 250,
@@ -256,17 +306,16 @@ class LoginScreen extends StatelessWidget {
                 child: const Text(
                   'Inscreva-se',
                   style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 18,
-                    decoration: TextDecoration.underline
-
-                  ),
+                      color: Colors.white,
+                      fontSize: 18,
+                      decoration: TextDecoration.underline),
                 ),
-                onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (context)=> RegisterScreen()
-                )
-                );
-                }
-                ),
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => RegisterScreen()));
+                }),
           ),
         ],
       ),

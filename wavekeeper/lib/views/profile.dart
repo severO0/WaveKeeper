@@ -5,10 +5,10 @@ import 'profile/usuario.dart';
 
 class ProfileView extends StatelessWidget {
 
- // final Usuario usuario;required this.usuario
+ //final Usuario usuario;
 
-  const ProfileView({Key? key, }) : super(key: key);
-
+ // const ProfileView({Key?key, required this.usuario}) : super(key: key);
+const ProfileView({Key?key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -63,7 +63,7 @@ class ProfileView extends StatelessWidget {
                   children: [
                     // Colocar a lógica para puxar os dados do usuário, puxar a foto, nome e nome artístico
                     Text(
-                      'Samuel Duarte Gomes',
+                      "Profile",
                       style: Theme.of(context).textTheme.titleMedium?.copyWith(
                             fontFamily: 'Readex Pro',
                             letterSpacing: 0.0,
@@ -73,7 +73,7 @@ class ProfileView extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
                       child: Text(
-                        'Samueldg_23',
+                        "Profile",
                         style: Theme.of(context).textTheme.titleSmall?.copyWith(
                               fontFamily: 'Readex Pro',
                               letterSpacing: 0.0,

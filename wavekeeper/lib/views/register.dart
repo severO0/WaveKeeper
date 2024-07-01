@@ -1,8 +1,8 @@
 import 'dart:convert';
 
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:http/http.dart' as http;
 import 'profile/usuario.dart';
 
 class RegisterScreen extends StatelessWidget {
@@ -17,30 +17,30 @@ class RegisterScreen extends StatelessWidget {
 
 
    registerUser() async {
-    final url = Uri.parse('http://127.0.0.1:8080/usuario');
-    final response = await http.post(
-      url,
-      headers: <String, String>{
-        'Content-Type': 'application/json; charset=UTF-8',
-      },
-      body: jsonEncode(<String, String>
-        {
-        "nome": "João Silva",
-        "cpf_cnpj": "123.789-00",
-        "email": "joaosexample.com",
-        "senha": "senhaSegura123" 
-      } 
-      ),
-    );
+  final dio = Dio();
+  final url = "http://10.0.2.2:8080/usuario";
+  final data = {
+    "nome": userController.text,
+    "cpf_cnpj": cpfController.text,
+    "email": emailController.text,
+    "senha": passwordController.text,
+  };
 
+  try {
+    final response = await dio.post(url, data: data);
     if (response.statusCode == 200) {
-      // Se o servidor retornar um 200 OK, analise o JSON
       print('Usuário registrado com sucesso!');
     } else {
-      // Se o servidor não retornar um 200 OK, lance uma exceção
-      throw Exception('Falha ao registrar usuário.');
+      print('Falha ao registrar usuário. Código de status: ${response.statusCode}');
+    }
+  } on DioError catch (e) {
+    print('Erro ao fazer a requisição: ${e.message}');
+    if (e.response != null) {
+      print('Dados da resposta: ${e.response}');
+      print('Código de status da resposta: ');
     }
   }
+}
 
   @override
   Widget build(BuildContext context) {
@@ -175,7 +175,14 @@ class RegisterScreen extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(height: 5),
+            SizedBox(height: 5),Text(
+              'CPF',
+              style: TextStyle(
+                color: Colors.white,
+                fontWeight: FontWeight.bold,
+                fontSize: 20,
+              ),
+            ),
             Container(
               padding: EdgeInsets.only(left: 10, top: 1, right: 1),
               decoration: BoxDecoration(

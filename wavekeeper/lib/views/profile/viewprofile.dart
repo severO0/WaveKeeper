@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:wavekeeper/views/profile/models/cardMusicas.dart';
 import 'package:wavekeeper/views/profile/models/cardLetras.dart';
+import 'package:wavekeeper/views/profile/usuario.dart';
 
 import '../profile.dart';
 
 class ViewProfile extends StatelessWidget {
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
