@@ -76,9 +76,70 @@ class SobreApp extends StatelessWidget {
                 ),
               ),
             ),
+            const SizedBox(height: 20.0),
+            Container(
+              margin: const EdgeInsets.all(24),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(20),
+              ),
+              child: ExpansionTile(
+                title: const Text(
+                  'Perguntas frequentes',
+                  style: TextStyle(
+                    fontSize: 20.0,
+                    fontFamily: 'Readex Pro',
+                    color: Colors.black,
+                  ),
+                ),
+                children: [
+                  ListTile(
+                    title: const Text(
+                      'Como eu utilizo dos direitos autorais de minhas obras?',
+                      style: TextStyle(
+                        fontSize: 18.0,
+                        fontFamily: 'Readex Pro',
+                        color: Colors.black,
+                      ),
+                    ),
+                    subtitle: const Text(
+                      'Fundação Biblioteca Nacional – Lei de Direitos Autorais Brasileira indica:\n\n'
+                      'Dentro do gov.br:\n\n'
+                      'Registre preferencialmente as músicas em partituras – caso não saiba é indicado procurar profissionais da área mas um exemplo de como fazer:\n'
+                      '1. Escolha um Software de Notação Musical: Programas como MuseScore, Finale, ou Sibelius são populares e oferecem ferramentas para criar partituras.\n'
+                      '2. Defina a Estrutura da Música: Determine o compasso, a tonalidade, e a estrutura (introdução, verso, refrão, etc.).\n'
+                      '3. Insira as Notas: Utilize o software para inserir as notas musicais nas linhas e espaços do pentagrama. Você pode usar um teclado MIDI ou inserir manualmente.\n'
+                      '4. Adicione Marcas de Expressão e Dinâmica: Inclua indicações de dinâmica (piano, forte, etc.) e outras marcas de expressão (legato, staccato, etc.) conforme necessário.\n'
+                      '5. Revise e Edite: Ouça a reprodução da partitura no software e faça ajustes conforme necessário.\n'
+                      '6. Salve e Imprima: Quando estiver satisfeito, salve o arquivo e imprima a partitura.\n\n'
+                      'Digite a letra da música.\n\n'
+                      'A biblioteca exige que esteja tudo em um único arquivo pdf e sem páginas em branco e enumerar as páginas.\n\n'
+                      'Entre no google e pesquise por biblioteca nacional e entre no link que seja do gov.br.\n'
+                      'Entre na sua conta do gov.br.\n'
+                      'Clique no menu, selecione serviços, direitos autorais, solicitações via Portal Gov Br.\n'
+                      'Clique em página exclusiva do EDA.\n'
+                      'Iniciar.\n'
+                      'Clique em tipo de solicitação - registro de obra ou averbação.\n'
+                      'Requerimento para registro – digite o título da sua música – escolha o gênero (música, letra e batida) – selecione inédita – quantas páginas tem o pdf – coloque os seus dados e das pessoas que participaram da produção.\n'
+                      'Anexe a sua obra em pdf máx 50mb.\n'
+                      'Em serviço solicitado escolha registro simples e realize o pagamento.\n'
+                      'Clique em concluir – confirme os seus dados e envie a solicitação.\n\n'
+                      'O escritório de direitos autorais irá analisar e toda vez que o pedido mudar o seu status eles enviarão um e-mail.',
+                      style: TextStyle(
+                        fontSize: 16.0,
+                        fontFamily: 'Readex Pro',
+                        color: Colors.black,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
           ],
         ),
       ),
     );
   }
 }
+
+
