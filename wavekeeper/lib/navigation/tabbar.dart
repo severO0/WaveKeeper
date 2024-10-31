@@ -1,29 +1,28 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
-import 'package:wavekeeper/views/home.dart';
-import 'package:wavekeeper/views/profile.dart';
-import 'package:wavekeeper/views/business.dart';
-import 'package:wavekeeper/views/login.dart';
-import 'package:wavekeeper/views/profile/usuario.dart';
+import 'package:flutter_wavekeeper/entity/user.dart';
+import 'package:flutter_wavekeeper/screens/business/business.dart';
+import 'package:flutter_wavekeeper/screens/home/home.dart';
+import 'package:flutter_wavekeeper/screens/profile/profile.dart';
+
 
 class Tabbar extends StatefulWidget {
-  final Usuario usuario;
-  const Tabbar({Key? key, required this.usuario}) : super(key: key);
+  final User user;
+  const Tabbar({Key? key, required this.user}) : super(key: key);
 
   @override
-  State<Tabbar> createState() => _TabbarState(this.usuario);
+  State<Tabbar> createState() => _TabbarState(this.user);
 }
 
 class _TabbarState extends State<Tabbar> {
   int _selectedTab = 0;
-  final Usuario usuario;
+  final User user;
 
-  _TabbarState(this.usuario);
+  _TabbarState(this.user);
 
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
-      drawer:Drawer(
+    return Scaffold(
+      drawer: Drawer(
         child: ListView(
           padding: EdgeInsets.zero,
           children: <Widget>[
@@ -44,7 +43,6 @@ class _TabbarState extends State<Tabbar> {
               title: Text('Home'),
               onTap: () {
                 Navigator.pop(context);
-                // Navegue para outra tela, se necessário
               },
             ),
             ListTile(
@@ -52,7 +50,6 @@ class _TabbarState extends State<Tabbar> {
               title: Text('Settings'),
               onTap: () {
                 Navigator.pop(context);
-                // Navegue para outra tela, se necessário
               },
             ),
             ListTile(
@@ -60,64 +57,44 @@ class _TabbarState extends State<Tabbar> {
               title: Text('Contacts'),
               onTap: () {
                 Navigator.pop(context);
-                // Navegue para outra tela, se necessário
               },
             ),
           ],
         ),
       ),
-     bottomNavigationBar: BottomNavigationBar(
-      currentIndex: _selectedTab ,
-      onTap: (index){
-        setState(() {
-          this._selectedTab = index;
-        });
-      },
-
-      items: [
-        //NOME DOS BOTOES DA GRID PRINCIPAL
-        BottomNavigationBarItem(
-          icon: Icon(Icons.home), 
-          label: "Início",
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: _selectedTab,
+        backgroundColor: Colors.black, // Fundo preto
+        selectedItemColor: Colors.white, // Cor do ícone e texto selecionado
+        unselectedItemColor: Colors.grey, // Cor do ícone e texto não selecionado
+        onTap: (index) {
+          setState(() {
+            _selectedTab = index;
+          });
+        },
+        items: const [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: "Início",
           ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.attach_money_rounded), 
-          label: "Negócios",
+          BottomNavigationBarItem(
+            icon: Icon(Icons.attach_money_rounded),
+            label: "Negócios",
           ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.person), 
-          label: "Perfil",
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person),
+            label: "Perfil",
           ),
-        
-      ],
-    ),
-      body: Stack(
+        ],
+      ),
+      body: IndexedStack(
+        index: _selectedTab,
         children: [
-          renderView(
-            0,
-             HomeView(),
-             ),  
-          renderView(
-            1, 
-            BusinessView(),
-            ),
-          renderView(
-            2,
-             ProfileView(),
-             ),
+          HomeView(),
+          BusinessView(),
+          ProfileView(),
         ],
       ),
     );
-  }
-  Widget renderView(int tabIndex, Widget view) {
-    
-    return IgnorePointer(
-          ignoring: _selectedTab !=tabIndex,
-          child:Opacity(
-            opacity: _selectedTab == tabIndex? 1 : 0, 
-            child:view,
-            ),
-         );
-        
   }
 }

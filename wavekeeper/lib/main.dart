@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:wavekeeper/views/business.dart';
-import 'package:wavekeeper/views/home.dart';
-import 'package:wavekeeper/views/login.dart';
-import 'package:wavekeeper/views/profile.dart';
-import 'package:wavekeeper/views/profile/audio.dart';
-import 'package:wavekeeper/views/profile/edicaoperfil.dart';
-import 'package:wavekeeper/views/profile/minhascompras.dart';
-import 'package:wavekeeper/views/profile/minhasvendas.dart';
-import 'package:wavekeeper/views/profile/privacidade.dart';
-import 'package:wavekeeper/views/profile/sobreApp.dart';
-import 'package:wavekeeper/views/profile/viewprofile.dart';
+import 'package:flutter_wavekeeper/screens/business/business.dart';
+import 'package:flutter_wavekeeper/screens/home/home.dart';
+import 'package:flutter_wavekeeper/screens/profile/aboutApp.dart';
+import 'package:flutter_wavekeeper/screens/profile/account.dart';
+import 'package:flutter_wavekeeper/screens/profile/privacy.dart';
+import 'package:flutter_wavekeeper/screens/profile/profile.dart';
+import 'package:flutter_wavekeeper/screens/profile/question.dart';
+import 'package:flutter_wavekeeper/screens/profile/sales.dart';
+import 'package:flutter_wavekeeper/screens/profile/yourMusic.dart';
+import 'package:flutter_wavekeeper/screens/start/login.dart';
 
 void main() {
   runApp(MyApp());
@@ -47,16 +46,16 @@ class MyApp extends StatelessWidget {
       ),
      
       home: LoginScreen(),
-      routes: {
-        '/minhasvendas': (context) => const MinhasVendas(),
-        '/minhascompras': (context) => const MinhasCompras(),
-        '/privacidade': (context) => const Privacidade(),
-        '/edicaoperfil': (context) => const EdicaoPerfil(),
-        '/audio': (context) => const Audio(),
-        '/sobreApp': (context) => const SobreApp(),
-        '/viewProfile': (context) => ViewProfile(),
-      }
 //usuario:Usuario(nome: nome, nomeArtistico: nomeArtistico, email: email, senha: senha)
+
+     routes: {
+        '/your_music': (context) => YourMusicPage(),
+        '/sales': (context) => SalesPage(),
+        '/account': (context) => AccountPage(),
+        '/frequently_asked_questions': (context) => QuestionsPage(),
+        '/privacy': (context) => PrivacyPage(),
+        '/about_the_app': (context) => AboutAppPage(),
+      },
     );
   }
 }

@@ -1,6 +1,6 @@
 {
-    "name": "wavekeeper",
-    "short_name": "wavekeeper",
+    "name": "flutter_wavekeeper",
+    "short_name": "flutter_wavekeeper",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

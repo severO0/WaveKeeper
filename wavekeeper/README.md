@@ -1,4 +1,4 @@
-# wavekeeper
+# flutter_wavekeeper
 
 A new Flutter project.
 
