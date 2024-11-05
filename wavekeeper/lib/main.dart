@@ -5,7 +5,7 @@ import 'package:flutter_wavekeeper/screens/profile/aboutApp.dart';
 import 'package:flutter_wavekeeper/screens/profile/account.dart';
 import 'package:flutter_wavekeeper/screens/profile/privacy.dart';
 import 'package:flutter_wavekeeper/screens/profile/profile.dart';
-import 'package:flutter_wavekeeper/screens/profile/question.dart';
+import 'package:flutter_wavekeeper/screens/profile/chatbot.dart';
 import 'package:flutter_wavekeeper/screens/profile/sales.dart';
 import 'package:flutter_wavekeeper/screens/profile/yourMusic.dart';
 import 'package:flutter_wavekeeper/screens/start/login.dart';
@@ -45,14 +45,14 @@ class MyApp extends StatelessWidget {
         ),
       ),
      
-      home: LoginScreen(),
+      home: ProfileView(),
 //usuario:Usuario(nome: nome, nomeArtistico: nomeArtistico, email: email, senha: senha)
 
      routes: {
         '/your_music': (context) => YourMusicPage(),
         '/sales': (context) => SalesPage(),
         '/account': (context) => AccountPage(),
-        '/frequently_asked_questions': (context) => QuestionsPage(),
+        '/frequently_asked_questions': (context) => ChatBotPage(),
         '/privacy': (context) => PrivacyPage(),
         '/about_the_app': (context) => AboutAppPage(),
       },
